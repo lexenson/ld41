@@ -5,12 +5,12 @@
 [ext_resource path="res://art/lamp.png" type="Texture" id=3]
 [ext_resource path="res://art/light.png" type="Texture" id=4]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Beer.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Customer.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Customer.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Beer.tscn" type="PackedScene" id=7]
 [ext_resource path="res://art/table.png" type="Texture" id=8]
 [ext_resource path="res://art/bar.png" type="Texture" id=9]
 
-[node name="Level" type="Node" index="0"]
+[node name="Level" type="Node"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Pause" ]
@@ -163,18 +163,18 @@ _sections_unfolded = [ "Transform" ]
 position = Vector2( 131.31, 736 )
 _sections_unfolded = [ "Collision", "Transform" ]
 
-[node name="Beer" parent="." index="4" instance=ExtResource( 6 )]
+[node name="Customer" parent="." index="4" instance=ExtResource( 6 )]
+
+position = Vector2( 394.221, 716.209 )
+
+[node name="Beer" parent="." index="5" instance=ExtResource( 7 )]
 
 position = Vector2( 1023.33, 666.078 )
 
-[node name="Customer" parent="." index="5" instance=ExtResource( 7 )]
-
-position = Vector2( 334.221, 672.209 )
-
 [node name="table" type="Sprite" parent="." index="6"]
 
-position = Vector2( 519.591, 736 )
-scale = Vector2( 4, 4 )
+position = Vector2( 491.591, 755 )
+scale = Vector2( 3, 3 )
 texture = ExtResource( 8 )
 _sections_unfolded = [ "Transform" ]
 

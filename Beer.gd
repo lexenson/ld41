@@ -9,8 +9,9 @@ func _process(delta):
 	$Sprite.flip_h = flip
 	
 
-
 func _on_Beer_area_entered(area):
 	if area.name == "Player":
 		area.holding = self
+	if area.name == "Customer":
+		$CollisionShape2D.disabled = true
 
