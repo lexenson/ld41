@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Tavern.gd" type="Script" id=1]
 [ext_resource path="res://art/painting_mountain.png" type="Texture" id=2]
@@ -10,7 +10,12 @@
 [ext_resource path="res://art/table.png" type="Texture" id=8]
 [ext_resource path="res://art/bar.png" type="Texture" id=9]
 
-[node name="Level" type="Node" index="0"]
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 22.6212, 10 )
+
+[node name="Level" type="Node"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Pause" ]
@@ -185,6 +190,27 @@ scale = Vector2( 4, 4 )
 texture = ExtResource( 9 )
 _sections_unfolded = [ "Transform" ]
 
+[node name="BarArea" type="Area2D" parent="bar" index="0"]
+
+position = Vector2( 7.17855, 1.55599 )
+scale = Vector2( 0.746348, -0.469059 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bar/BarArea" index="0"]
+
+position = Vector2( 0.155306, -1.3605 )
+scale = Vector2( 1.43372, 2.76336 )
+shape = SubResource( 1 )
+
 [connection signal="taking_beer" from="Customer" to="Player" method="remove_holding"]
+
+[connection signal="beer_placed_on_bar" from="Beer" to="Player" method="_on_Beer_beer_placed_on_bar"]
 
 

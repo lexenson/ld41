@@ -45,3 +45,7 @@ func _process(delta):
 
 func remove_holding():
 	holding = null
+
+
+func _on_Beer_beer_placed_on_bar():
+	remove_holding()
