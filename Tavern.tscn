@@ -38,6 +38,8 @@ __meta__ = {
 [node name="Player" parent="." index="1" instance=ExtResource( 2 )]
 
 position = Vector2( 131.31, 733.393 )
+_sections_unfolded = [ "Audio Bus", "Collision", "Transform" ]
+jump_speed = 2000
 
 [node name="Path2D" type="Path2D" parent="." index="2"]
 
