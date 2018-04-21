@@ -44,7 +44,6 @@ angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
 script = ExtResource( 1 )
-_sections_unfolded = [ "Collision" ]
 speed = 600
 jump_speed = 1000
 holding = null
@@ -60,7 +59,6 @@ shape = SubResource( 1 )
 scale = Vector2( 2, 2 )
 frames = SubResource( 2 )
 animation = "idle"
-frame = 1
 playing = true
 _sections_unfolded = [ "Transform" ]
 
