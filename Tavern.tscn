@@ -4,9 +4,8 @@
 [ext_resource path="res://art/painting_mountain.png" type="Texture" id=2]
 [ext_resource path="res://art/lamp.png" type="Texture" id=3]
 [ext_resource path="res://art/light.png" type="Texture" id=4]
-[ext_resource path="res://art/customer-1.png" type="Texture" id=5]
-[ext_resource path="res://Player.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Beer.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Player.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Beer.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Customer.tscn" type="PackedScene" id=7]
 [ext_resource path="res://art/table.png" type="Texture" id=8]
 [ext_resource path="res://art/bar.png" type="Texture" id=9]
@@ -159,19 +158,12 @@ shadow_filter_smooth = 0.0
 shadow_item_cull_mask = 1
 _sections_unfolded = [ "Transform" ]
 
-[node name="customer-1" type="Sprite" parent="." index="3"]
-
-position = Vector2( 478.79, 720 )
-scale = Vector2( 2.5, 2.5 )
-texture = ExtResource( 5 )
-_sections_unfolded = [ "Transform" ]
-
-[node name="Player" parent="." index="4" instance=ExtResource( 6 )]
+[node name="Player" parent="." index="3" instance=ExtResource( 5 )]
 
 position = Vector2( 131.31, 736 )
 _sections_unfolded = [ "Collision", "Transform" ]
 
-[node name="Beer" parent="." index="5" instance=ExtResource( 7 )]
+[node name="Beer" parent="." index="4" instance=ExtResource( 6 )]
 
 position = Vector2( 1023.33, 666.078 )
 
@@ -181,8 +173,8 @@ position = Vector2( 334.221, 672.209 )
 
 [node name="table" type="Sprite" parent="." index="6"]
 
-position = Vector2( 519.591, 754 )
-scale = Vector2( 3, 3 )
+position = Vector2( 519.591, 736 )
+scale = Vector2( 4, 4 )
 texture = ExtResource( 8 )
 _sections_unfolded = [ "Transform" ]
 
@@ -194,3 +186,5 @@ texture = ExtResource( 9 )
 _sections_unfolded = [ "Transform" ]
 
 [connection signal="taking_beer" from="Customer" to="Player" method="remove_holding"]
+
+
