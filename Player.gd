@@ -26,6 +26,9 @@ func control(delta):
 	
 	if (velocity.x == 0 and ground_touched):
 		$AnimatedSprite.animation = 'idle'
+	
+	if not ground_touched:
+		$AnimatedSprite.animation = 'jump'
 		
 	position = Vector2(max(32, min(1200 - 32, position.x)), min(800 - 64, position.y))
 	

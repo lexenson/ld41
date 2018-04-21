@@ -1,12 +1,13 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Player.gd" type="Script" id=1]
 [ext_resource path="res://art/schankboy-idle1.png" type="Texture" id=2]
 [ext_resource path="res://art/schankboy-idle2.png" type="Texture" id=3]
-[ext_resource path="res://art/schankboy-walk1.png" type="Texture" id=4]
-[ext_resource path="res://art/schankboy-walk2.png" type="Texture" id=5]
-[ext_resource path="res://art/schankboy-walk3.png" type="Texture" id=6]
-[ext_resource path="res://art/schankboy-walk4.png" type="Texture" id=7]
+[ext_resource path="res://art/schankboy-walk2.png" type="Texture" id=4]
+[ext_resource path="res://art/schankboy-walk3.png" type="Texture" id=5]
+[ext_resource path="res://art/schankboy-walk4.png" type="Texture" id=6]
+[ext_resource path="res://art/schankboy-walk1.png" type="Texture" id=7]
+[ext_resource path="res://art/schankboy-jump.png" type="Texture" id=8]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -25,9 +26,14 @@ animations = [ {
 "loop": true,
 "name": "walk",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 8 ) ],
+"loop": true,
+"name": "jump",
+"speed": 5.0
 } ]
 
-[node name="Player" type="Area2D"]
+[node name="Player" type="Area2D" index="0"]
 
 position = Vector2( 77.2896, 729.71 )
 input_pickable = true
@@ -38,10 +44,8 @@ angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
 script = ExtResource( 1 )
-__meta__ = {
-"_edit_group_": true
-}
 speed = 600
+jump_speed = 1000
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="0"]
 
