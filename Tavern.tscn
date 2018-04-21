@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Tavern.gd" type="Script" id=1]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://art/beer.png" type="Texture" id=3]
+[ext_resource path="res://art/table.png" type="Texture" id=4]
 
 [sub_resource type="Curve2D" id=1]
 
@@ -40,7 +41,6 @@ __meta__ = {
 
 position = Vector2( 131.31, 736 )
 _sections_unfolded = [ "Transform" ]
-jump_speed = 1000
 
 [node name="Path2D" type="Path2D" parent="." index="2"]
 
@@ -55,11 +55,18 @@ autostart = false
 
 [node name="beer" type="Sprite" parent="." index="4"]
 
-position = Vector2( 676.741, 723.279 )
+position = Vector2( 420.144, 696.269 )
 scale = Vector2( 2, 2 )
 texture = ExtResource( 3 )
 flip_h = true
 _sections_unfolded = [ "Offset", "Transform" ]
+
+[node name="table" type="Sprite" parent="." index="5"]
+
+position = Vector2( 519.591, 736 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 4 )
+_sections_unfolded = [ "Transform" ]
 
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 
