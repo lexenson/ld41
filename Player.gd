@@ -42,5 +42,6 @@ func _process(delta):
 		else:
 			holding.flip = true
 			holding.position = position + Vector2(59, 15)
-	
 
+func remove_holding():
+	holding = null

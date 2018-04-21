@@ -7,6 +7,7 @@
 [ext_resource path="res://art/customer-1.png" type="Texture" id=5]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Beer.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Customer.tscn" type="PackedScene" id=7]
 [ext_resource path="res://art/table.png" type="Texture" id=8]
 [ext_resource path="res://art/bar.png" type="Texture" id=9]
 
@@ -174,6 +175,10 @@ _sections_unfolded = [ "Collision", "Transform" ]
 
 position = Vector2( 1023.33, 666.078 )
 
+[node name="Customer" parent="." index="5" instance=ExtResource( 7 )]
+
+position = Vector2( 334.221, 672.209 )
+
 [node name="table" type="Sprite" parent="." index="6"]
 
 position = Vector2( 519.591, 754 )
@@ -188,4 +193,4 @@ scale = Vector2( 4, 4 )
 texture = ExtResource( 9 )
 _sections_unfolded = [ "Transform" ]
 
-
+[connection signal="taking_beer" from="Customer" to="Player" method="remove_holding"]
