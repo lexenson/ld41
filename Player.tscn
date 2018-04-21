@@ -3,11 +3,11 @@
 [ext_resource path="res://Player.gd" type="Script" id=1]
 [ext_resource path="res://art/schankboy-idle1.png" type="Texture" id=2]
 [ext_resource path="res://art/schankboy-idle2.png" type="Texture" id=3]
-[ext_resource path="res://art/schankboy-walk2.png" type="Texture" id=4]
-[ext_resource path="res://art/schankboy-walk3.png" type="Texture" id=5]
-[ext_resource path="res://art/schankboy-walk4.png" type="Texture" id=6]
-[ext_resource path="res://art/schankboy-walk1.png" type="Texture" id=7]
-[ext_resource path="res://art/schankboy-jump.png" type="Texture" id=8]
+[ext_resource path="res://art/schankboy-jump.png" type="Texture" id=4]
+[ext_resource path="res://art/schankboy-walk2.png" type="Texture" id=5]
+[ext_resource path="res://art/schankboy-walk3.png" type="Texture" id=6]
+[ext_resource path="res://art/schankboy-walk4.png" type="Texture" id=7]
+[ext_resource path="res://art/schankboy-walk1.png" type="Texture" id=8]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -22,18 +22,18 @@ animations = [ {
 "name": "idle",
 "speed": 0.6
 }, {
-"frames": [ ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ) ],
-"loop": true,
-"name": "walk",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 8 ) ],
+"frames": [ ExtResource( 4 ) ],
 "loop": true,
 "name": "jump",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ) ],
+"loop": true,
+"name": "walk",
+"speed": 5.0
 } ]
 
-[node name="Player" type="Area2D" index="0"]
+[node name="Player" type="Area2D"]
 
 position = Vector2( 77.2896, 729.71 )
 input_pickable = true
@@ -49,8 +49,8 @@ jump_speed = 1000
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="0"]
 
-position = Vector2( -0.335464, 0.373749 )
-scale = Vector2( 1, 1.24394 )
+position = Vector2( -4.41321, 5.76193 )
+scale = Vector2( 3.5041, 5.60317 )
 shape = SubResource( 1 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="." index="1"]
