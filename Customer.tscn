@@ -8,7 +8,7 @@
 custom_solver_bias = 0.0
 extents = Vector2( 15.1127, 19.4591 )
 
-[node name="Customer" type="Area2D" index="0"]
+[node name="Customer" type="Area2D"]
 
 position = Vector2( 35.6493, 49.3537 )
 scale = Vector2( 2.11404, 2.5423 )
