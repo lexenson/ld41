@@ -2,6 +2,7 @@ extends Area2D
 
 export (int) var speed = 300
 export (int) var jump_speed = 1000
+export (PackedScene) var holding
 
 var velocity = Vector2()
 
@@ -34,5 +35,12 @@ func control(delta):
 	
 func _process(delta):
 	control(delta)
+	if (holding):
+		if $AnimatedSprite.flip_h:
+			holding.flip = false
+			holding.position = position + Vector2(-59, 15)
+		else:
+			holding.flip = true
+			holding.position = position + Vector2(59, 15)
 	
 

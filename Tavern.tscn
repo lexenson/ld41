@@ -1,12 +1,10 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Tavern.gd" type="Script" id=1]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=2]
-[ext_resource path="res://art/table.png" type="Texture" id=3]
-[ext_resource path="res://art/bar.png" type="Texture" id=4]
-[ext_resource path="res://Beer.tscn" type="PackedScene" id=5]
-[ext_resource path="res://art/lamp.png" type="Texture" id=6]
-[ext_resource path="res://art/light.png" type="Texture" id=7]
+[ext_resource path="res://Beer.tscn" type="PackedScene" id=3]
+[ext_resource path="res://art/table.png" type="Texture" id=4]
+[ext_resource path="res://art/bar.png" type="Texture" id=5]
 
 [sub_resource type="Curve2D" id=1]
 
@@ -43,150 +41,35 @@ __meta__ = {
 [node name="Player" parent="." index="1" instance=ExtResource( 2 )]
 
 position = Vector2( 131.31, 736 )
-_sections_unfolded = [ "Transform" ]
+_sections_unfolded = [ "Collision", "Transform" ]
 
-[node name="Path2D" type="Path2D" parent="." index="2"]
+[node name="Beer" parent="." index="2" instance=ExtResource( 3 )]
+
+position = Vector2( 1023.33, 666.078 )
+
+[node name="Path2D" type="Path2D" parent="." index="3"]
 
 curve = SubResource( 1 )
 
-[node name="Timer" type="Timer" parent="." index="3"]
+[node name="Timer" type="Timer" parent="." index="4"]
 
 process_mode = 1
 wait_time = 1.0
 one_shot = false
 autostart = false
 
-[node name="table" type="Sprite" parent="." index="4"]
+[node name="table" type="Sprite" parent="." index="5"]
 
 position = Vector2( 519.591, 736 )
-scale = Vector2( 4, 4 )
-texture = ExtResource( 3 )
-_sections_unfolded = [ "Transform" ]
-
-[node name="bar" type="Sprite" parent="." index="5"]
-
-position = Vector2( 1075.76, 736 )
 scale = Vector2( 4, 4 )
 texture = ExtResource( 4 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Beer" parent="." index="6" instance=ExtResource( 5 )]
+[node name="bar" type="Sprite" parent="." index="6"]
 
-position = Vector2( 1023.33, 666.078 )
-
-[node name="lamp" type="Sprite" parent="." index="7"]
-
-position = Vector2( 565.017, 128 )
+position = Vector2( 1075.76, 736 )
 scale = Vector2( 4, 4 )
-texture = ExtResource( 6 )
-_sections_unfolded = [ "Transform" ]
-
-[node name="Light2D" type="Light2D" parent="lamp" index="0"]
-
-position = Vector2( -22.0783, -5.63578 )
-scale = Vector2( 0.1, 0.1 )
-enabled = true
-editor_only = false
-texture = ExtResource( 7 )
-offset = Vector2( 0, 0 )
-texture_scale = 10.0
-color = Color( 1, 1, 1, 1 )
-energy = 1.0
-mode = 0
-range_height = 0.0
-range_z_min = -1024
-range_z_max = 1024
-range_layer_min = 0
-range_layer_max = 0
-range_item_cull_mask = 1
-shadow_enabled = false
-shadow_color = Color( 0, 0, 0, 0 )
-shadow_buffer_size = 2048
-shadow_gradient_length = 1.0
-shadow_filter = 0
-shadow_filter_smooth = 0.5
-shadow_item_cull_mask = 1
-_sections_unfolded = [ "Material", "Range", "Shadow", "Transform" ]
-
-[node name="Light2D2" type="Light2D" parent="lamp" index="1"]
-
-position = Vector2( -11.2357, -6.00332 )
-scale = Vector2( 0.1, 0.1 )
-enabled = true
-editor_only = false
-texture = ExtResource( 7 )
-offset = Vector2( 0, 0 )
-texture_scale = 10.0
-color = Color( 1, 1, 1, 1 )
-energy = 1.0
-mode = 0
-range_height = 0.0
-range_z_min = -1024
-range_z_max = 1024
-range_layer_min = 0
-range_layer_max = 0
-range_item_cull_mask = 1
-shadow_enabled = false
-shadow_color = Color( 0, 0, 0, 0 )
-shadow_buffer_size = 2048
-shadow_gradient_length = 0.0
-shadow_filter = 0
-shadow_filter_smooth = 0.0
-shadow_item_cull_mask = 1
-_sections_unfolded = [ "Transform" ]
-
-[node name="Light2D3" type="Light2D" parent="lamp" index="2"]
-
-position = Vector2( 9.89822, -6.1871 )
-scale = Vector2( 0.1, 0.1 )
-enabled = true
-editor_only = false
-texture = ExtResource( 7 )
-offset = Vector2( 0, 0 )
-texture_scale = 10.0
-color = Color( 1, 1, 1, 1 )
-energy = 1.0
-mode = 0
-range_height = 0.0
-range_z_min = -1024
-range_z_max = 1024
-range_layer_min = 0
-range_layer_max = 0
-range_item_cull_mask = 1
-shadow_enabled = false
-shadow_color = Color( 0, 0, 0, 0 )
-shadow_buffer_size = 2048
-shadow_gradient_length = 0.0
-shadow_filter = 0
-shadow_filter_smooth = 0.0
-shadow_item_cull_mask = 1
-_sections_unfolded = [ "Transform" ]
-
-[node name="Light2D4" type="Light2D" parent="lamp" index="3"]
-
-position = Vector2( 22.3948, -6.55464 )
-scale = Vector2( 0.1, 0.1 )
-enabled = true
-editor_only = false
-texture = ExtResource( 7 )
-offset = Vector2( 0, 0 )
-texture_scale = 10.0
-color = Color( 1, 1, 1, 1 )
-energy = 1.0
-mode = 0
-range_height = 0.0
-range_z_min = -1024
-range_z_max = 1024
-range_layer_min = 0
-range_layer_max = 0
-range_item_cull_mask = 1
-shadow_enabled = false
-shadow_color = Color( 0, 0, 0, 0 )
-shadow_buffer_size = 2048
-shadow_gradient_length = 0.0
-shadow_filter = 0
-shadow_filter_smooth = 0.0
-shadow_item_cull_mask = 1
+texture = ExtResource( 5 )
 _sections_unfolded = [ "Transform" ]
 
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

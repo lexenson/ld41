@@ -1,13 +1,14 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://art/beer.png" type="Texture" id=1]
+[ext_resource path="res://Beer.gd" type="Script" id=1]
+[ext_resource path="res://art/beer.png" type="Texture" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
 extents = Vector2( 10, 10 )
 
-[node name="Area2D" type="Area2D"]
+[node name="Beer" type="Area2D"]
 
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
@@ -16,11 +17,13 @@ linear_damp = 0.1
 angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
+script = ExtResource( 1 )
+flip = false
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 
 scale = Vector2( 2, 2 )
-texture = ExtResource( 1 )
+texture = ExtResource( 2 )
 flip_h = true
 _sections_unfolded = [ "Offset", "Transform" ]
 
@@ -29,5 +32,11 @@ _sections_unfolded = [ "Offset", "Transform" ]
 position = Vector2( -3.22739, 2.0815 )
 scale = Vector2( 2.80862, 3.03696 )
 shape = SubResource( 1 )
+
+[node name="Position2D" type="Position2D" parent="." index="2"]
+
+[connection signal="area_entered" from="." to="." method="_on_Beer_area_entered"]
+
+[connection signal="body_entered" from="." to="." method="_on_Area2D_body_entered"]
 
 
