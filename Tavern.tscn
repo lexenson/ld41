@@ -33,21 +33,35 @@ script = ExtResource( 1 )
 _sections_unfolded = [ "Pause" ]
 coins = 0
 
-[node name="tavern_background" type="Sprite" parent="." index="0"]
+[node name="tavern_background_right" type="Sprite" parent="." index="0"]
 
 position = Vector2( 600.658, 400.575 )
 scale = Vector2( 3.128, 3.128 )
 texture = ExtResource( 2 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="painting_mountain" type="Sprite" parent="." index="1"]
+[node name="tavern_background_middle" type="Sprite" parent="." index="1"]
+
+position = Vector2( -600.367, 400.817 )
+scale = Vector2( 3.128, 3.128 )
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="tavern_background_left" type="Sprite" parent="." index="2"]
+
+position = Vector2( -1800, 400.575 )
+scale = Vector2( 3.128, 3.128 )
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="painting_mountain" type="Sprite" parent="." index="3"]
 
 position = Vector2( 838.92, 418.728 )
 scale = Vector2( 2, 2 )
 texture = ExtResource( 3 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="lamp" type="Sprite" parent="." index="2"]
+[node name="lamp" type="Sprite" parent="." index="4"]
 
 editor/display_folded = true
 position = Vector2( 565.017, 128 )
@@ -163,14 +177,14 @@ shadow_filter_smooth = 0.0
 shadow_item_cull_mask = 1
 _sections_unfolded = [ "Transform" ]
 
-[node name="barrel" type="Sprite" parent="." index="3"]
+[node name="barrel" type="Sprite" parent="." index="5"]
 
 position = Vector2( 1104.09, 616.858 )
 scale = Vector2( 1.5, 1.5 )
 texture = ExtResource( 6 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Customers" type="Node" parent="." index="4"]
+[node name="Customers" type="Node" parent="." index="6"]
 
 [node name="Customer" parent="Customers" index="0" instance=ExtResource( 7 )]
 
@@ -182,16 +196,16 @@ assigned_seat_position = NodePath("../../Seats/Position2D")
 position = Vector2( 174.226, 723.361 )
 assigned_seat_position = NodePath("../../Seats/Position2D2")
 
-[node name="Beer" parent="." index="5" instance=ExtResource( 8 )]
+[node name="Beer" parent="." index="7" instance=ExtResource( 8 )]
 
 position = Vector2( 1023.33, 666.078 )
 
-[node name="Player" parent="." index="6" instance=ExtResource( 9 )]
+[node name="Player" parent="." index="8" instance=ExtResource( 9 )]
 
-position = Vector2( 814.127, 730.414 )
+position = Vector2( 400, 730.414 )
 _sections_unfolded = [ "Collision", "Transform" ]
 
-[node name="bar" type="Sprite" parent="." index="7"]
+[node name="bar" type="Sprite" parent="." index="9"]
 
 editor/display_folded = true
 position = Vector2( 1075.76, 736 )
@@ -218,14 +232,14 @@ position = Vector2( 5.16583, 2.26471 )
 scale = Vector2( 0.17105, 2.76336 )
 shape = SubResource( 1 )
 
-[node name="table" type="Sprite" parent="." index="8"]
+[node name="table" type="Sprite" parent="." index="10"]
 
 position = Vector2( 491.591, 755 )
 scale = Vector2( 3, 3 )
 texture = ExtResource( 11 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Seats" type="Node" parent="." index="9"]
+[node name="Seats" type="Node" parent="." index="11"]
 
 editor/display_folded = true
 
@@ -237,8 +251,9 @@ position = Vector2( 417.745, 735.03 )
 
 position = Vector2( 564.462, 733.584 )
 
-[node name="CoinHUD" type="Node2D" parent="." index="10"]
+[node name="CoinHUD" type="Node2D" parent="." index="12"]
 
+editor/display_folded = true
 position = Vector2( 1054.3, 759.779 )
 __meta__ = {
 "_edit_group_": true
