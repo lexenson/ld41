@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Customer.gd" type="Script" id=1]
 [ext_resource path="res://art/customer-1-idle1.png" type="Texture" id=2]
@@ -10,8 +10,9 @@
 [ext_resource path="res://art/customer-1-walk4.png" type="Texture" id=8]
 [ext_resource path="res://art/thought_bubble.png" type="Texture" id=9]
 [ext_resource path="res://art/beer-half1.png" type="Texture" id=10]
+[ext_resource path="res://art/coin.png" type="Texture" id=11]
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="RectangleShape2D" id=3]
 
 custom_solver_bias = 0.0
 extents = Vector2( 15.1127, 19.4591 )
@@ -54,7 +55,7 @@ assigned_seat_position = null
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="0"]
 
-shape = SubResource( 1 )
+shape = SubResource( 3 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="." index="1"]
 
@@ -65,18 +66,26 @@ animation = "sit"
 
 position = Vector2( -1.9611, 8.26847 )
 
-[node name="BeerThoughtBubble" type="Sprite" parent="." index="3"]
+[node name="ThoughtBubble" type="Sprite" parent="." index="3"]
 
 visible = false
 position = Vector2( 25.9293, -43.904 )
 texture = ExtResource( 9 )
 _sections_unfolded = [ "Visibility" ]
 
-[node name="Sprite" type="Sprite" parent="BeerThoughtBubble" index="0"]
+[node name="Beer" type="Sprite" parent="ThoughtBubble" index="0"]
 
 position = Vector2( 0.187897, -5.15599 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 10 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Coin" type="Sprite" parent="ThoughtBubble" index="1"]
+
+visible = false
+position = Vector2( 0.693367, -3.66905 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 11 )
 _sections_unfolded = [ "Transform" ]
 
 [connection signal="area_entered" from="." to="." method="_on_Customer_area_entered"]
