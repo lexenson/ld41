@@ -44,7 +44,7 @@ func _process(delta):
 			holding.position = position + Vector2(59, 15)
 
 func _on_Beer_taken_by(taken, taker):
-	if taker.name == self.name:
+	if taker == self:
 		holding = taken
 	else:
 		holding = null

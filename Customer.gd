@@ -14,7 +14,7 @@ func _process(delta):
 
 
 func _on_Beer_taken_by(taken, taker):
-	if (taker.name == name) and not taken.empty:
+	if (taker == self) and not taken.empty:
 		taken.position = position + $BeerPosition.position
 		consuming = taken
 	else:

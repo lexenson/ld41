@@ -197,8 +197,8 @@ position = Vector2( 0.155306, -1.3605 )
 scale = Vector2( 1.43372, 2.76336 )
 shape = SubResource( 1 )
 
-[connection signal="taken_by" from="Beer" to="Customer" method="_on_Beer_taken_by"]
-
 [connection signal="taken_by" from="Beer" to="Player" method="_on_Beer_taken_by"]
+
+[connection signal="taken_by" from="Beer" to="Customer" method="_on_Beer_taken_by"]
 
 
