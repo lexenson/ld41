@@ -12,7 +12,7 @@
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
-extents = Vector2( 10, 10 )
+extents = Vector2( 10.6134, 7.03024 )
 
 [sub_resource type="SpriteFrames" id=2]
 
@@ -33,7 +33,7 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[node name="Player" type="Area2D"]
+[node name="Player" type="Area2D" index="0"]
 
 position = Vector2( 77.2896, 729.71 )
 input_pickable = true
@@ -44,21 +44,24 @@ angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
 script = ExtResource( 1 )
+_sections_unfolded = [ "Transform" ]
 speed = 600
 jump_speed = 1000
 holding = null
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="0"]
 
-position = Vector2( -4.41321, 5.76193 )
+position = Vector2( -6.61385, 23.8071 )
 scale = Vector2( 3.5041, 5.60317 )
 shape = SubResource( 1 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="." index="1"]
 
+position = Vector2( -4.40129, 6.1618 )
 scale = Vector2( 2, 2 )
 frames = SubResource( 2 )
 animation = "idle"
+frame = 1
 playing = true
 _sections_unfolded = [ "Transform" ]
 

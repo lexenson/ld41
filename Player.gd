@@ -43,9 +43,8 @@ func _process(delta):
 			holding.flip = true
 			holding.position = position + Vector2(59, 15)
 
-func remove_holding():
-	holding = null
-
-
-func _on_Beer_beer_placed_on_bar():
-	remove_holding()
+func _on_Beer_taken_by(taken, taker):
+	if taker.name == self.name:
+		holding = taken
+	else:
+		holding = null

@@ -37,7 +37,6 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="lamp" type="Sprite" parent="." index="2"]
 
-editor/display_folded = true
 position = Vector2( 565.017, 128 )
 scale = Vector2( 4, 4 )
 texture = ExtResource( 4 )
@@ -153,7 +152,7 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="Player" parent="." index="3" instance=ExtResource( 6 )]
 
-position = Vector2( 131.31, 736 )
+position = Vector2( 129.689, 731.137 )
 _sections_unfolded = [ "Collision", "Transform" ]
 
 [node name="Customer" parent="." index="4" instance=ExtResource( 7 )]
@@ -198,8 +197,8 @@ position = Vector2( 0.155306, -1.3605 )
 scale = Vector2( 1.43372, 2.76336 )
 shape = SubResource( 1 )
 
-[connection signal="taking_beer" from="Customer" to="Player" method="remove_holding"]
+[connection signal="taken_by" from="Beer" to="Customer" method="_on_Beer_taken_by"]
 
-[connection signal="beer_placed_on_bar" from="Beer" to="Player" method="_on_Beer_beer_placed_on_bar"]
+[connection signal="taken_by" from="Beer" to="Player" method="_on_Beer_taken_by"]
 
 
