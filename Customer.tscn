@@ -49,6 +49,9 @@ audio_bus_name = "Master"
 script = ExtResource( 1 )
 consuming = null
 initial_animation = "sit"
+speed = 5
+state = "COMING"
+assigned_seat_position = null
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="0"]
 
@@ -78,5 +81,3 @@ texture = ExtResource( 10 )
 _sections_unfolded = [ "Transform" ]
 
 [connection signal="area_entered" from="." to="." method="_on_Customer_area_entered"]
-
-

@@ -1,26 +1,36 @@
 extends Area2D
 
 export (PackedScene) var consuming
-export (String) var initial_animation = 'sit'
-
-var leaving = false
+export (int) var speed = 5
+export (String) var state = "COMING"
+export (NodePath) var assigned_seat_position
 
 func _ready():
-	$AnimatedSprite.animation = initial_animation
 	$AnimatedSprite.play()
 
 func _process(delta):
-	$BeerThoughtBubble.visible = false
-	if consuming and consuming.empty:
-		leaving = true
-		consuming = null
-	elif leaving:
+	if consuming:
+		$BeerThoughtBubble.visible = false
+		if consuming.empty:
+			state = "LEAVING"
+			consuming = null
+	elif state == "LEAVING":
 		$BeerThoughtBubble.visible = false
 	else:
 		$BeerThoughtBubble.visible = true
 
-	if leaving:
-		position.x -= 20
+	if state == "COMING":
+		$AnimatedSprite.animation = "walk"
+		$AnimatedSprite.flip_h = false
+		position.x += speed
+		if (position.x >= get_node(assigned_seat_position).position.x):
+			state = "SITTING"
+	elif state == "LEAVING":
+		$AnimatedSprite.animation = "walk"
+		$AnimatedSprite.flip_h = true
+		position.x -= speed
+	elif state == "SITTING":
+		$AnimatedSprite.animation = "sit"
 
 
 func _on_Beer_taken_by(taken, taker):

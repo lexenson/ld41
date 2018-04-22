@@ -163,11 +163,13 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="Customer" parent="Customers" index="0" instance=ExtResource( 7 )]
 
-position = Vector2( 394.221, 716.209 )
+position = Vector2( 56.3729, 719.823 )
+assigned_seat_position = NodePath("../../Seats/Position2D")
 
 [node name="Customer2" parent="Customers" index="1" instance=ExtResource( 7 )]
 
-position = Vector2( 585.467, 717.797 )
+position = Vector2( 174.226, 723.361 )
+assigned_seat_position = NodePath("../../Seats/Position2D2")
 
 [node name="Beer" parent="." index="5" instance=ExtResource( 8 )]
 
@@ -175,7 +177,7 @@ position = Vector2( 1023.33, 666.078 )
 
 [node name="Player" parent="." index="6" instance=ExtResource( 9 )]
 
-position = Vector2( 129.689, 731.137 )
+position = Vector2( 814.127, 730.414 )
 _sections_unfolded = [ "Collision", "Transform" ]
 
 [node name="bar" type="Sprite" parent="." index="7"]
@@ -212,8 +214,18 @@ scale = Vector2( 3, 3 )
 texture = ExtResource( 11 )
 _sections_unfolded = [ "Transform" ]
 
-[connection signal="taken_by" from="Beer" to="." method="_on_Beer_taken_by"]
+[node name="Seats" type="Node" parent="." index="9"]
+
+[node name="Position2D" type="Position2D" parent="Seats" index="0"]
+
+position = Vector2( 417.745, 735.03 )
+
+[node name="Position2D2" type="Position2D" parent="Seats" index="1"]
+
+position = Vector2( 564.462, 733.584 )
 
 [connection signal="taken_by" from="Beer" to="Player" method="_on_Beer_taken_by"]
+
+[connection signal="taken_by" from="Beer" to="." method="_on_Beer_taken_by"]
 
 
