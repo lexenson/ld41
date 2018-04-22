@@ -198,13 +198,16 @@ _sections_unfolded = [ "Transform" ]
 
 position = Vector2( -153.181, 717.029 )
 state = "ARRIVING"
-assigned_seat_position = NodePath("../../Seats/Position2D")
 
 [node name="Customer2" parent="Customers" index="1" instance=ExtResource( 8 )]
 
 position = Vector2( -35.3278, 719.636 )
 state = "ARRIVING"
-assigned_seat_position = NodePath("../../Seats/Position2D2")
+
+[node name="Customer3" parent="Customers" index="2" instance=ExtResource( 7 )]
+
+position = Vector2( 107.748, 719.636 )
+state = "ARRIVING"
 
 [node name="Beer" parent="." index="8" instance=ExtResource( 9 )]
 
@@ -251,8 +254,6 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="Seats" type="Node" parent="." index="12"]
 
-editor/display_folded = true
-
 [node name="Position2D" type="Position2D" parent="Seats" index="0"]
 
 position = Vector2( 417.745, 735.03 )
@@ -298,8 +299,8 @@ _sections_unfolded = [ "custom_colors", "custom_fonts", "custom_styles" ]
 position = Vector2( -27, 4.19875 )
 texture = ExtResource( 14 )
 
-[connection signal="taken_by" from="Beer" to="." method="_on_Beer_taken_by"]
-
 [connection signal="taken_by" from="Beer" to="Player" method="_on_Beer_taken_by"]
+
+[connection signal="taken_by" from="Beer" to="." method="_on_Beer_taken_by"]
 
 

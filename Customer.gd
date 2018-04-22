@@ -8,6 +8,7 @@ export (NodePath) var assigned_seat_position
 var stop_position
 
 signal paid
+signal looking_for_seat(customer)
 
 func _ready():
 	$AnimatedSprite.play()
@@ -76,4 +77,4 @@ func _on_Customer_area_entered(area):
 			state = "LEAVING"
 			emit_signal("paid")
 		elif state == "WAITING":
-			state = "COMING"
+			emit_signal("looking_for_seat", self)
