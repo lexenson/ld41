@@ -24,7 +24,10 @@ func _process(delta):
 		if position.x >= stop_position:
 			state = "WAITING"
 			$AnimatedSprite.animation = "idle"
-	if state == "COMING":
+	elif state == "WAITING":
+		$AnimatedSprite.animation = "idle"
+		show_table_bubble()		
+	elif state == "COMING":
 		$ThoughtBubble.visible = false		
 		$AnimatedSprite.animation = "walk"
 		$AnimatedSprite.flip_h = false
@@ -67,11 +70,19 @@ func show_coin_bubble():
 	$ThoughtBubble.visible = true
 	$ThoughtBubble/Coin.visible = true
 	$ThoughtBubble/Beer.visible = false
+	$ThoughtBubble/Table.visible = false
 	
 func show_beer_bubble():
 	$ThoughtBubble.visible = true
 	$ThoughtBubble/Coin.visible = false
 	$ThoughtBubble/Beer.visible = true
+	$ThoughtBubble/Table.visible = false
+
+func show_table_bubble():
+	$ThoughtBubble.visible = true
+	$ThoughtBubble/Coin.visible = false
+	$ThoughtBubble/Beer.visible = false
+	$ThoughtBubble/Table.visible = true
 
 
 func _on_Beer_taken_by(taken, taker):
