@@ -39,7 +39,7 @@ func _process(delta):
 			state = "PAYING"
 			consuming = null
 	elif state == "PAYING":
-		$CollisionShape2D.disabled = true
+		$CollisionShape2D.disabled = false
 		show_coin_bubble()
 		$AnimatedSprite.animation = "sit"
 		
@@ -55,6 +55,12 @@ func show_beer_bubble():
 
 
 func _on_Beer_taken_by(taken, taker):
-	if (taker == self) and not taken.empty:
+	if (taker == self) and not taken.empty and state != "PAYING":
 		taken.position = position + $BeerPosition.position
 		consuming = taken
+
+
+func _on_Customer_area_entered(area):
+	if area.name == "Player" and state == "PAYING" and not area.holding:
+		state = "LEAVING"
+		emit_signal("paid")

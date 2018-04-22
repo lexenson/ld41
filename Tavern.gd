@@ -9,8 +9,7 @@ func _ready():
 func customer_paid():
 	coins += 1
 	$CoinHUD.get_node("Label").text = String(coins)
-	print(coins)
 
 func _on_Beer_taken_by(taken, taker):
-	for customer in get_node("Customers").get_children():
+	for customer in $Customers.get_children():
 		customer._on_Beer_taken_by(taken, taker)

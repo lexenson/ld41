@@ -273,8 +273,8 @@ _sections_unfolded = [ "custom_colors", "custom_fonts", "custom_styles" ]
 position = Vector2( -27, 4.19875 )
 texture = ExtResource( 13 )
 
-[connection signal="taken_by" from="Beer" to="Player" method="_on_Beer_taken_by"]
-
 [connection signal="taken_by" from="Beer" to="." method="_on_Beer_taken_by"]
+
+[connection signal="taken_by" from="Beer" to="Player" method="_on_Beer_taken_by"]
 
 
