@@ -7,10 +7,10 @@ path="res://.import/tavern_background.png-f7d1e62e3fc55ffbbc9041849c8f5bad.stex"
 [deps]
 
 source_file="res://art/tavern_background.png"
-source_md5="6e256e56552bcd04a348d8d578c0708e"
+source_md5="8fbb3b47cff7c3519c83e19b80e456b1"
 
 dest_files=[ "res://.import/tavern_background.png-f7d1e62e3fc55ffbbc9041849c8f5bad.stex" ]
-dest_md5="853d2f87a4d68ad1f04eba393f7384e3"
+dest_md5="d7e678a8a6839498bc5490bb152374ca"
 
 [params]
 
