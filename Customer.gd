@@ -1,12 +1,15 @@
 extends Area2D
 
 export (PackedScene) var consuming
-export (int) var speed = 20
+export (String) var initial_animation = 'sit'
 
 var leaving = false
 
+func _ready():
+	$AnimatedSprite.animation = initial_animation
+	$AnimatedSprite.play()
+
 func _process(delta):
-	if consuming:
 		$BeerThoughtBubble.visible = false
 		if consuming.empty:
 			leaving = true

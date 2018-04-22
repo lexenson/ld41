@@ -1,16 +1,32 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Customer.gd" type="Script" id=1]
 [ext_resource path="res://art/customer-1.png" type="Texture" id=2]
-[ext_resource path="res://art/thought_bubble.png" type="Texture" id=3]
-[ext_resource path="res://art/beer-half1.png" type="Texture" id=4]
+[ext_resource path="res://art/customer-1-idle1.png" type="Texture" id=3]
+[ext_resource path="res://art/customer-1-idle2.png" type="Texture" id=4]
+[ext_resource path="res://art/thought_bubble.png" type="Texture" id=5]
+[ext_resource path="res://art/beer-half1.png" type="Texture" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
 extents = Vector2( 15.1127, 19.4591 )
 
-[node name="Customer" type="Area2D"]
+[sub_resource type="SpriteFrames" id=2]
+
+animations = [ {
+"frames": [ ExtResource( 2 ) ],
+"loop": false,
+"name": "sit",
+"speed": 0.2
+}, {
+"frames": [ ExtResource( 3 ), ExtResource( 4 ) ],
+"loop": true,
+"name": "idle",
+"speed": 0.2
+} ]
+
+[node name="Customer" type="Area2D" index="0"]
 
 position = Vector2( 35.6493, 49.3537 )
 scale = Vector2( 2.11404, 2.5423 )
@@ -23,14 +39,16 @@ audio_bus_override = false
 audio_bus_name = "Master"
 script = ExtResource( 1 )
 consuming = null
+initial_animation = "sit"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="0"]
 
 shape = SubResource( 1 )
 
-[node name="Sprite" type="Sprite" parent="." index="1"]
+[node name="AnimatedSprite" type="AnimatedSprite" parent="." index="1"]
 
-texture = ExtResource( 2 )
+frames = SubResource( 2 )
+animation = "sit"
 
 [node name="BeerPosition" type="Position2D" parent="." index="2"]
 
@@ -40,14 +58,14 @@ position = Vector2( -1.9611, 8.26847 )
 
 visible = false
 position = Vector2( 25.9293, -43.904 )
-texture = ExtResource( 3 )
+texture = ExtResource( 5 )
 _sections_unfolded = [ "Visibility" ]
 
 [node name="Sprite" type="Sprite" parent="BeerThoughtBubble" index="0"]
 
 position = Vector2( 0.187897, -5.15599 )
 scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 4 )
+texture = ExtResource( 6 )
 _sections_unfolded = [ "Transform" ]
 
 [connection signal="area_entered" from="." to="." method="_on_Customer_area_entered"]
