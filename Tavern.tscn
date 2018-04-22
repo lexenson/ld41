@@ -189,6 +189,8 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="Customers" type="Node" parent="." index="6"]
 
+editor/display_folded = true
+
 [node name="Customer" parent="Customers" index="0" instance=ExtResource( 2 )]
 
 position = Vector2( -153.181, 717.029 )
@@ -230,16 +232,32 @@ position = Vector2( 5.16583, 2.26471 )
 scale = Vector2( 0.17105, 2.76336 )
 shape = SubResource( 1 )
 
-[node name="table" type="Sprite" parent="." index="10"]
+[node name="Tables" type="Node" parent="." index="10"]
+
+editor/display_folded = true
+
+[node name="table" type="Sprite" parent="Tables" index="0"]
 
 position = Vector2( 491.591, 755 )
 scale = Vector2( 3, 3 )
 texture = ExtResource( 12 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Seats" type="Node" parent="." index="11"]
+[node name="table2" type="Sprite" parent="Tables" index="1"]
 
-editor/display_folded = true
+position = Vector2( -420.201, 753.137 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 12 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="table3" type="Sprite" parent="Tables" index="2"]
+
+position = Vector2( -861.661, 753.137 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 12 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Seats" type="Node" parent="." index="11"]
 
 [node name="Position2D" type="Position2D" parent="Seats" index="0"]
 
@@ -248,6 +266,22 @@ position = Vector2( 417.745, 735.03 )
 [node name="Position2D2" type="Position2D" parent="Seats" index="1"]
 
 position = Vector2( 564.462, 733.584 )
+
+[node name="Position2D3" type="Position2D" parent="Seats" index="2"]
+
+position = Vector2( -335.222, 723.339 )
+
+[node name="Position2D4" type="Position2D" parent="Seats" index="3"]
+
+position = Vector2( -477.719, 721.476 )
+
+[node name="Position2D5" type="Position2D" parent="Seats" index="4"]
+
+position = Vector2( -775.751, 721.476 )
+
+[node name="Position2D6" type="Position2D" parent="Seats" index="5"]
+
+position = Vector2( -937.806, 721.476 )
 
 [node name="CoinHUD" type="Node2D" parent="." index="12"]
 
@@ -293,8 +327,8 @@ wait_time = 10.0
 one_shot = false
 autostart = true
 
-[connection signal="taken_by" from="Beer" to="." method="_on_Beer_taken_by"]
-
 [connection signal="taken_by" from="Beer" to="Player" method="_on_Beer_taken_by"]
+
+[connection signal="taken_by" from="Beer" to="." method="_on_Beer_taken_by"]
 
 

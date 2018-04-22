@@ -35,9 +35,16 @@ func _process(delta):
 		$ThoughtBubble.visible = false		
 		$AnimatedSprite.animation = "walk"
 		$AnimatedSprite.flip_h = false
-		position.x += speed
-		if (position.x >= get_node(assigned_seat_position).position.x):
-			state = "SITTING"
+		var target_position = get_node(assigned_seat_position).position.x
+		$AnimatedSprite.flip_h = position.x > target_position
+		if position.x >= target_position:
+			position.x -= speed
+			if position.x <= target_position:
+				state = "SITTING"
+		elif  position.x <= target_position:
+			position.x += speed
+			if position.x >= target_position:
+				state = "SITTING"
 		$CollisionShape2D.disabled = true
 	elif state == "LEAVING":
 		$ThoughtBubble.visible = false		
@@ -45,11 +52,11 @@ func _process(delta):
 		$AnimatedSprite.flip_h = position.x > door_position_x
 		if position.x >= door_position_x:
 			position.x -= speed
-			if position.y <= door_position_x:
+			if position.x <= door_position_x:
 				queue_free()
 		elif  position.x <= door_position_x:
 			position.x += speed
-			if position.y >= door_position_x:
+			if position.x >= door_position_x:
 				queue_free()
 		$CollisionShape2D.disabled = true		
 	elif state == "SITTING":
