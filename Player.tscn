@@ -1,13 +1,13 @@
 [gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Player.gd" type="Script" id=1]
-[ext_resource path="res://art/schankboy-idle1.png" type="Texture" id=2]
-[ext_resource path="res://art/schankboy-idle2.png" type="Texture" id=3]
-[ext_resource path="res://art/schankboy-jump.png" type="Texture" id=4]
-[ext_resource path="res://art/schankboy-walk2.png" type="Texture" id=5]
-[ext_resource path="res://art/schankboy-walk3.png" type="Texture" id=6]
-[ext_resource path="res://art/schankboy-walk4.png" type="Texture" id=7]
-[ext_resource path="res://art/schankboy-walk1.png" type="Texture" id=8]
+[ext_resource path="res://art/schankboy-walk2.png" type="Texture" id=2]
+[ext_resource path="res://art/schankboy-walk3.png" type="Texture" id=3]
+[ext_resource path="res://art/schankboy-walk4.png" type="Texture" id=4]
+[ext_resource path="res://art/schankboy-walk1.png" type="Texture" id=5]
+[ext_resource path="res://art/schankboy-jump.png" type="Texture" id=6]
+[ext_resource path="res://art/schankboy-idle1.png" type="Texture" id=7]
+[ext_resource path="res://art/schankboy-idle2.png" type="Texture" id=8]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -17,23 +17,23 @@ extents = Vector2( 10.6134, 7.03024 )
 [sub_resource type="SpriteFrames" id=2]
 
 animations = [ {
-"frames": [ ExtResource( 2 ), ExtResource( 3 ) ],
+"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ) ],
 "loop": true,
-"name": "idle",
-"speed": 0.6
+"name": "walk",
+"speed": 5.0
 }, {
-"frames": [ ExtResource( 4 ) ],
+"frames": [ ExtResource( 6 ) ],
 "loop": true,
 "name": "jump",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ) ],
+"frames": [ ExtResource( 7 ), ExtResource( 8 ) ],
 "loop": true,
-"name": "walk",
-"speed": 5.0
+"name": "idle",
+"speed": 0.6
 } ]
 
-[node name="Player" type="Area2D"]
+[node name="Player" type="Area2D" index="0"]
 
 position = Vector2( 77.2896, 729.71 )
 input_pickable = true
@@ -61,6 +61,7 @@ position = Vector2( -4.40129, 6.1618 )
 scale = Vector2( 2, 2 )
 frames = SubResource( 2 )
 animation = "idle"
+frame = 1
 playing = true
 _sections_unfolded = [ "Transform" ]
 
@@ -72,7 +73,7 @@ anchor_mode = 1
 rotating = false
 current = true
 zoom = Vector2( 1, 1 )
-limit_left = -2400
+limit_left = -1200
 limit_top = 0
 limit_right = 1200
 limit_bottom = 800
@@ -91,3 +92,5 @@ editor_draw_screen = true
 editor_draw_limits = false
 editor_draw_drag_margin = false
 _sections_unfolded = [ "Limit" ]
+
+

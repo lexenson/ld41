@@ -31,7 +31,7 @@ func control(delta):
 	if not ground_touched:
 		$AnimatedSprite.animation = 'jump'
 		
-	position = Vector2(max(-2357, min(1200 - 32, position.x)), min(800 - 64, position.y))
+	position = Vector2(max(-1157, min(1200 - 32, position.x)), min(800 - 64, position.y))
 	
 func _process(delta):
 	control(delta)
