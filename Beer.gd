@@ -9,19 +9,20 @@ func _process(delta):
 	
 
 func _on_Beer_area_entered(area):
+	var parent = area.get_parent()
 	if area.name == "Player":
 		emit_signal("taken_by", self, area)
-	if area.get_parent().name == "Customers" and not empty:
+	if parent.name == "Customers" and not empty and area.get('state') == 'SITTING':
 		emit_signal("taken_by", self, area)
-		$CollisionShape2D.disabled = true
-		$AnimatedSprite.play('drink')
 	if area.name == "BarArea" and empty:
 		$CollisionShape2D.disabled = true
 		$AnimatedSprite.play('fill')
 		emit_signal("taken_by", self, area)
 		position.y =  area.global_position.y - 72
 
-
+func start_drinking():
+	$CollisionShape2D.disabled = true
+	$AnimatedSprite.play('drink')
 
 func _on_AnimatedSprite_animation_finished():
 	$AnimatedSprite.stop()

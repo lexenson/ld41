@@ -188,12 +188,14 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="Customer" parent="Customers" index="0" instance=ExtResource( 7 )]
 
-position = Vector2( 56.3729, 719.823 )
+position = Vector2( -153.181, 717.029 )
+state = "ARRIVING"
 assigned_seat_position = NodePath("../../Seats/Position2D")
 
 [node name="Customer2" parent="Customers" index="1" instance=ExtResource( 7 )]
 
-position = Vector2( 174.226, 723.361 )
+position = Vector2( -35.3278, 719.636 )
+state = "ARRIVING"
 assigned_seat_position = NodePath("../../Seats/Position2D2")
 
 [node name="Beer" parent="." index="7" instance=ExtResource( 8 )]

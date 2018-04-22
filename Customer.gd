@@ -2,15 +2,25 @@ extends Area2D
 
 export (PackedScene) var consuming
 export (int) var speed = 5
-export (String) var state = "COMING"
+export (String) var state = "ARRIVING"
 export (NodePath) var assigned_seat_position
+
+var stop_position
 
 signal paid
 
 func _ready():
 	$AnimatedSprite.play()
+	stop_position = round(rand_range(50, 500))
 
 func _process(delta):
+	if state == "ARRIVING":
+		position.x += speed
+		$AnimatedSprite.animation = "walk"
+		$AnimatedSprite.flip_h = false
+		if position.x >= stop_position:
+			state = "WAITING"
+			$AnimatedSprite.animation = "idle"
 	if state == "COMING":
 		$ThoughtBubble.visible = false		
 		$AnimatedSprite.animation = "walk"
@@ -55,12 +65,15 @@ func show_beer_bubble():
 
 
 func _on_Beer_taken_by(taken, taker):
-	if (taker == self) and not taken.empty and state != "PAYING":
+	if taker == self:
+		taken.start_drinking()
 		taken.position = position + $BeerPosition.position
 		consuming = taken
 
-
 func _on_Customer_area_entered(area):
-	if area.name == "Player" and state == "PAYING" and not area.holding:
-		state = "LEAVING"
-		emit_signal("paid")
+	if area.name == "Player":
+		if state == "PAYING" and not area.holding:
+			state = "LEAVING"
+			emit_signal("paid")
+		elif state == "WAITING":
+			state = "COMING"
