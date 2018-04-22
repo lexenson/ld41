@@ -3,6 +3,7 @@ extends Area2D
 export (bool) var flip = false
 var empty = false
 signal taken_by(taken, taker)
+	
 
 func _process(delta):
 	$AnimatedSprite.flip_h = flip
@@ -11,7 +12,7 @@ func _process(delta):
 func _on_Beer_area_entered(area):
 	if area.name == "Player":
 		emit_signal("taken_by", self, area)
-	if area.name == "Customer" and not empty:
+	if area.get_parent().name == "Customers" and not empty:
 		emit_signal("taken_by", self, area)
 		$CollisionShape2D.disabled = true
 		$AnimatedSprite.play('drink')

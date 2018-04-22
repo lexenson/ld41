@@ -159,9 +159,15 @@ scale = Vector2( 1.5, 1.5 )
 texture = ExtResource( 6 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Customer" parent="." index="4" instance=ExtResource( 7 )]
+[node name="Customers" type="Node" parent="." index="4"]
+
+[node name="Customer" parent="Customers" index="0" instance=ExtResource( 7 )]
 
 position = Vector2( 394.221, 716.209 )
+
+[node name="Customer2" parent="Customers" index="1" instance=ExtResource( 7 )]
+
+position = Vector2( 585.467, 717.797 )
 
 [node name="Beer" parent="." index="5" instance=ExtResource( 8 )]
 
@@ -207,6 +213,6 @@ _sections_unfolded = [ "Transform" ]
 
 [connection signal="taken_by" from="Beer" to="Player" method="_on_Beer_taken_by"]
 
-[connection signal="taken_by" from="Beer" to="Customer" method="_on_Beer_taken_by"]
+[connection signal="taken_by" from="Beer" to="." method="_on_Beer_taken_by"]
 
 

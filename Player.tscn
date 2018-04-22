@@ -46,7 +46,7 @@ audio_bus_name = "Master"
 script = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]
 speed = 600
-jump_speed = 1000
+jump_speed = 2000
 holding = null
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="0"]
@@ -61,6 +61,7 @@ position = Vector2( -4.40129, 6.1618 )
 scale = Vector2( 2, 2 )
 frames = SubResource( 2 )
 animation = "idle"
+frame = 1
 playing = true
 _sections_unfolded = [ "Transform" ]
 

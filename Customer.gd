@@ -2,10 +2,6 @@ extends Area2D
 
 export (PackedScene) var consuming
 
-
-func _ready():
-	pass
-	
 func _process(delta):
 	if consuming:
 		$BeerThoughtBubble.visible = false
