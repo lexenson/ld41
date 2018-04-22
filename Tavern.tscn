@@ -1,15 +1,16 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Tavern.gd" type="Script" id=1]
 [ext_resource path="res://art/tavern_background.png" type="Texture" id=2]
 [ext_resource path="res://art/painting_mountain.png" type="Texture" id=3]
 [ext_resource path="res://art/lamp.png" type="Texture" id=4]
 [ext_resource path="res://art/light.png" type="Texture" id=5]
-[ext_resource path="res://Player.tscn" type="PackedScene" id=6]
+[ext_resource path="res://art/barrel.png" type="Texture" id=6]
 [ext_resource path="res://Customer.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Beer.tscn" type="PackedScene" id=8]
-[ext_resource path="res://art/table.png" type="Texture" id=9]
+[ext_resource path="res://Player.tscn" type="PackedScene" id=9]
 [ext_resource path="res://art/bar.png" type="Texture" id=10]
+[ext_resource path="res://art/table.png" type="Texture" id=11]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -37,6 +38,7 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="lamp" type="Sprite" parent="." index="2"]
 
+editor/display_folded = true
 position = Vector2( 565.017, 128 )
 scale = Vector2( 4, 4 )
 texture = ExtResource( 4 )
@@ -150,10 +152,12 @@ shadow_filter_smooth = 0.0
 shadow_item_cull_mask = 1
 _sections_unfolded = [ "Transform" ]
 
-[node name="Player" parent="." index="3" instance=ExtResource( 6 )]
+[node name="barrel" type="Sprite" parent="." index="3"]
 
-position = Vector2( 129.689, 731.137 )
-_sections_unfolded = [ "Collision", "Transform" ]
+position = Vector2( 1104.09, 616.858 )
+scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 6 )
+_sections_unfolded = [ "Transform" ]
 
 [node name="Customer" parent="." index="4" instance=ExtResource( 7 )]
 
@@ -163,16 +167,13 @@ position = Vector2( 394.221, 716.209 )
 
 position = Vector2( 1023.33, 666.078 )
 
-[node name="table" type="Sprite" parent="." index="6"]
+[node name="Player" parent="." index="6" instance=ExtResource( 9 )]
 
-position = Vector2( 491.591, 755 )
-scale = Vector2( 3, 3 )
-texture = ExtResource( 9 )
-_sections_unfolded = [ "Transform" ]
+position = Vector2( 129.689, 731.137 )
+_sections_unfolded = [ "Collision", "Transform" ]
 
 [node name="bar" type="Sprite" parent="." index="7"]
 
-editor/display_folded = true
 position = Vector2( 1075.76, 736 )
 scale = Vector2( 4, 4 )
 texture = ExtResource( 10 )
@@ -193,9 +194,16 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="bar/BarArea" index="0"]
 
-position = Vector2( 0.155306, -1.3605 )
-scale = Vector2( 1.43372, 2.76336 )
+position = Vector2( 5.16583, 2.26471 )
+scale = Vector2( 0.17105, 2.76336 )
 shape = SubResource( 1 )
+
+[node name="table" type="Sprite" parent="." index="8"]
+
+position = Vector2( 491.591, 755 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 11 )
+_sections_unfolded = [ "Transform" ]
 
 [connection signal="taken_by" from="Beer" to="Player" method="_on_Beer_taken_by"]
 
