@@ -5,6 +5,8 @@ export (int) var speed = 5
 export (String) var state = "COMING"
 export (NodePath) var assigned_seat_position
 
+signal paid
+
 func _ready():
 	$AnimatedSprite.play()
 
@@ -13,6 +15,7 @@ func _process(delta):
 		$BeerThoughtBubble.visible = false
 		if consuming.empty:
 			state = "LEAVING"
+			emit_signal("paid")
 			consuming = null
 	elif state == "LEAVING":
 		$BeerThoughtBubble.visible = false
