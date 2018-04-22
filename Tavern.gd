@@ -12,7 +12,6 @@ func _ready():
 	seats = $Seats.get_children()
 	
 func assign_customer_seat(customer):
-	print("assign seat")
 	if (len(seats) > 0):
 		customer.assigned_seat_position = seats.pop_front().get_path()
 		customer.state = "COMING" 

@@ -6,6 +6,8 @@ export (String) var state = "ARRIVING"
 export (NodePath) var assigned_seat_position
 
 var stop_position
+const door_position_x = 0
+
 
 signal paid(customer)
 signal looking_for_seat(customer)
@@ -33,8 +35,15 @@ func _process(delta):
 	elif state == "LEAVING":
 		$ThoughtBubble.visible = false		
 		$AnimatedSprite.animation = "walk"
-		$AnimatedSprite.flip_h = true
-		position.x -= speed
+		$AnimatedSprite.flip_h = position.x > door_position_x
+		if position.x >= door_position_x:
+			position.x -= speed
+			if position.y <= door_position_x:
+				queue_free()
+		elif  position.x <= door_position_x:
+			position.x += speed
+			if position.y >= door_position_x:
+				queue_free()
 		$CollisionShape2D.disabled = true		
 	elif state == "SITTING":
 		show_beer_bubble()
