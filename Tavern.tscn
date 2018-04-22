@@ -1,18 +1,19 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Tavern.gd" type="Script" id=1]
 [ext_resource path="res://art/tavern_background.png" type="Texture" id=2]
-[ext_resource path="res://art/painting_mountain.png" type="Texture" id=3]
-[ext_resource path="res://art/lamp.png" type="Texture" id=4]
-[ext_resource path="res://art/light.png" type="Texture" id=5]
-[ext_resource path="res://art/barrel.png" type="Texture" id=6]
-[ext_resource path="res://Customer.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Beer.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Player.tscn" type="PackedScene" id=9]
-[ext_resource path="res://art/bar.png" type="Texture" id=10]
-[ext_resource path="res://art/table.png" type="Texture" id=11]
-[ext_resource path="res://arcade.ttf" type="DynamicFontData" id=12]
-[ext_resource path="res://art/coin.png" type="Texture" id=13]
+[ext_resource path="res://art/tavern-door.png" type="Texture" id=3]
+[ext_resource path="res://art/painting_mountain.png" type="Texture" id=4]
+[ext_resource path="res://art/lamp.png" type="Texture" id=5]
+[ext_resource path="res://art/light.png" type="Texture" id=6]
+[ext_resource path="res://art/barrel.png" type="Texture" id=7]
+[ext_resource path="res://Customer.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Beer.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Player.tscn" type="PackedScene" id=10]
+[ext_resource path="res://art/bar.png" type="Texture" id=11]
+[ext_resource path="res://art/table.png" type="Texture" id=12]
+[ext_resource path="res://arcade.ttf" type="DynamicFontData" id=13]
+[ext_resource path="res://art/coin.png" type="Texture" id=14]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -24,7 +25,7 @@ extents = Vector2( 22.6212, 10 )
 size = 50
 use_mipmaps = false
 use_filter = false
-font_data = ExtResource( 12 )
+font_data = ExtResource( 13 )
 _sections_unfolded = [ "Font", "Settings" ]
 
 [node name="Level" type="Node" index="0"]
@@ -54,19 +55,26 @@ scale = Vector2( 3.128, 3.128 )
 texture = ExtResource( 2 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="painting_mountain" type="Sprite" parent="." index="3"]
+[node name="tavern-door" type="Sprite" parent="." index="3"]
 
-position = Vector2( 838.92, 418.728 )
-scale = Vector2( 2, 2 )
+position = Vector2( 8.20007, 638.58 )
+scale = Vector2( 2.5, 2.5 )
 texture = ExtResource( 3 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="lamp" type="Sprite" parent="." index="4"]
+[node name="painting_mountain" type="Sprite" parent="." index="4"]
+
+position = Vector2( 838.92, 418.728 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 4 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="lamp" type="Sprite" parent="." index="5"]
 
 editor/display_folded = true
 position = Vector2( 565.017, 128 )
 scale = Vector2( 4, 4 )
-texture = ExtResource( 4 )
+texture = ExtResource( 5 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Light2D" type="Light2D" parent="lamp" index="0"]
@@ -75,7 +83,7 @@ position = Vector2( -22.0783, -5.63578 )
 scale = Vector2( 0.1, 0.1 )
 enabled = true
 editor_only = false
-texture = ExtResource( 5 )
+texture = ExtResource( 6 )
 offset = Vector2( 0, 0 )
 texture_scale = 10.0
 color = Color( 1, 1, 1, 1 )
@@ -102,7 +110,7 @@ position = Vector2( -11.2357, -6.00332 )
 scale = Vector2( 0.1, 0.1 )
 enabled = true
 editor_only = false
-texture = ExtResource( 5 )
+texture = ExtResource( 6 )
 offset = Vector2( 0, 0 )
 texture_scale = 10.0
 color = Color( 1, 1, 1, 1 )
@@ -129,7 +137,7 @@ position = Vector2( 9.89822, -6.1871 )
 scale = Vector2( 0.1, 0.1 )
 enabled = true
 editor_only = false
-texture = ExtResource( 5 )
+texture = ExtResource( 6 )
 offset = Vector2( 0, 0 )
 texture_scale = 10.0
 color = Color( 1, 1, 1, 1 )
@@ -156,7 +164,7 @@ position = Vector2( 22.3948, -6.55464 )
 scale = Vector2( 0.1, 0.1 )
 enabled = true
 editor_only = false
-texture = ExtResource( 5 )
+texture = ExtResource( 6 )
 offset = Vector2( 0, 0 )
 texture_scale = 10.0
 color = Color( 1, 1, 1, 1 )
@@ -177,42 +185,42 @@ shadow_filter_smooth = 0.0
 shadow_item_cull_mask = 1
 _sections_unfolded = [ "Transform" ]
 
-[node name="barrel" type="Sprite" parent="." index="5"]
+[node name="barrel" type="Sprite" parent="." index="6"]
 
 position = Vector2( 1104.09, 616.858 )
 scale = Vector2( 1.5, 1.5 )
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Customers" type="Node" parent="." index="6"]
+[node name="Customers" type="Node" parent="." index="7"]
 
-[node name="Customer" parent="Customers" index="0" instance=ExtResource( 7 )]
+[node name="Customer" parent="Customers" index="0" instance=ExtResource( 8 )]
 
 position = Vector2( -153.181, 717.029 )
 state = "ARRIVING"
 assigned_seat_position = NodePath("../../Seats/Position2D")
 
-[node name="Customer2" parent="Customers" index="1" instance=ExtResource( 7 )]
+[node name="Customer2" parent="Customers" index="1" instance=ExtResource( 8 )]
 
 position = Vector2( -35.3278, 719.636 )
 state = "ARRIVING"
 assigned_seat_position = NodePath("../../Seats/Position2D2")
 
-[node name="Beer" parent="." index="7" instance=ExtResource( 8 )]
+[node name="Beer" parent="." index="8" instance=ExtResource( 9 )]
 
 position = Vector2( 1023.33, 666.078 )
 
-[node name="Player" parent="." index="8" instance=ExtResource( 9 )]
+[node name="Player" parent="." index="9" instance=ExtResource( 10 )]
 
 position = Vector2( 400, 730.414 )
 _sections_unfolded = [ "Collision", "Transform" ]
 
-[node name="bar" type="Sprite" parent="." index="9"]
+[node name="bar" type="Sprite" parent="." index="10"]
 
 editor/display_folded = true
 position = Vector2( 1075.76, 736 )
 scale = Vector2( 4, 4 )
-texture = ExtResource( 10 )
+texture = ExtResource( 11 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="BarArea" type="Area2D" parent="bar" index="0"]
@@ -234,14 +242,14 @@ position = Vector2( 5.16583, 2.26471 )
 scale = Vector2( 0.17105, 2.76336 )
 shape = SubResource( 1 )
 
-[node name="table" type="Sprite" parent="." index="10"]
+[node name="table" type="Sprite" parent="." index="11"]
 
 position = Vector2( 491.591, 755 )
 scale = Vector2( 3, 3 )
-texture = ExtResource( 11 )
+texture = ExtResource( 12 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Seats" type="Node" parent="." index="11"]
+[node name="Seats" type="Node" parent="." index="12"]
 
 editor/display_folded = true
 
@@ -253,7 +261,7 @@ position = Vector2( 417.745, 735.03 )
 
 position = Vector2( 564.462, 733.584 )
 
-[node name="CoinHUD" type="Node2D" parent="." index="12"]
+[node name="CoinHUD" type="Node2D" parent="." index="13"]
 
 editor/display_folded = true
 position = Vector2( 1054.3, 759.779 )
@@ -288,7 +296,7 @@ _sections_unfolded = [ "custom_colors", "custom_fonts", "custom_styles" ]
 [node name="Sprite" type="Sprite" parent="CoinHUD" index="1"]
 
 position = Vector2( -27, 4.19875 )
-texture = ExtResource( 13 )
+texture = ExtResource( 14 )
 
 [connection signal="taken_by" from="Beer" to="." method="_on_Beer_taken_by"]
 
