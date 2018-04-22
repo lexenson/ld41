@@ -3,7 +3,6 @@ extends Area2D
 export (bool) var flip = false
 var empty = false
 signal taken_by(taken, taker)
-	
 
 func _process(delta):
 	$AnimatedSprite.flip_h = flip
