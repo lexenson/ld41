@@ -5,9 +5,9 @@
 [ext_resource path="res://art/customer-1-walk2.png" type="Texture" id=3]
 [ext_resource path="res://art/customer-1-walk3.png" type="Texture" id=4]
 [ext_resource path="res://art/customer-1-walk4.png" type="Texture" id=5]
-[ext_resource path="res://art/customer-1-idle1.png" type="Texture" id=6]
-[ext_resource path="res://art/customer-1-idle2.png" type="Texture" id=7]
-[ext_resource path="res://art/customer-1.png" type="Texture" id=8]
+[ext_resource path="res://art/customer-1.png" type="Texture" id=6]
+[ext_resource path="res://art/customer-1-idle1.png" type="Texture" id=7]
+[ext_resource path="res://art/customer-1-idle2.png" type="Texture" id=8]
 [ext_resource path="res://art/thought_bubble.png" type="Texture" id=9]
 [ext_resource path="res://art/beer-half1.png" type="Texture" id=10]
 [ext_resource path="res://art/coin.png" type="Texture" id=11]
@@ -26,18 +26,18 @@ animations = [ {
 "name": "walk",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 6 ), ExtResource( 7 ) ],
-"loop": true,
-"name": "idle",
-"speed": 0.2
-}, {
-"frames": [ ExtResource( 8 ) ],
+"frames": [ ExtResource( 6 ) ],
 "loop": false,
 "name": "sit",
 "speed": 0.2
+}, {
+"frames": [ ExtResource( 7 ), ExtResource( 8 ) ],
+"loop": true,
+"name": "idle",
+"speed": 0.2
 } ]
 
-[node name="Customer" type="Area2D" index="0"]
+[node name="Customer" type="Area2D"]
 
 position = Vector2( 35.6493, 49.3537 )
 scale = Vector2( 2.11404, 2.5423 )
@@ -51,7 +51,7 @@ audio_bus_name = "Master"
 script = ExtResource( 1 )
 consuming = null
 speed = 5
-state = "COMING"
+state = "ARRIVING"
 assigned_seat_position = null
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="0"]

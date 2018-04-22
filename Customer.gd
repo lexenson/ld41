@@ -13,11 +13,14 @@ signal paid(customer)
 signal looking_for_seat(customer)
 
 func _ready():
+	position.x = -100
+	position.y = 717
 	$AnimatedSprite.play()
-	stop_position = round(rand_range(50, 500))
+	stop_position = round(rand_range(-100, 200))
 
 func _process(delta):
 	if state == "ARRIVING":
+		$ThoughtBubble.visible = false
 		position.x += speed
 		$AnimatedSprite.animation = "walk"
 		$AnimatedSprite.flip_h = false
@@ -25,6 +28,7 @@ func _process(delta):
 			state = "WAITING"
 			$AnimatedSprite.animation = "idle"
 	elif state == "WAITING":
+		$ThoughtBubble.visible = false
 		$AnimatedSprite.animation = "idle"
 		show_table_bubble()		
 	elif state == "COMING":
