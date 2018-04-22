@@ -17,7 +17,9 @@ func assign_customer_seat(customer):
 		customer.assigned_seat_position = seats.pop_front().get_path()
 		customer.state = "COMING" 
 	
-func customer_paid():
+func customer_paid(customer):
+	seats.append(get_node(customer.assigned_seat_position))
+	customer.assigned_seat_position = null
 	coins += 1
 	$CoinHUD.get_node("Label").text = String(coins)
 

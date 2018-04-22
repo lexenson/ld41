@@ -204,7 +204,7 @@ state = "ARRIVING"
 position = Vector2( -35.3278, 719.636 )
 state = "ARRIVING"
 
-[node name="Customer3" parent="Customers" index="2" instance=ExtResource( 7 )]
+[node name="Customer3" parent="Customers" index="2" instance=ExtResource( 8 )]
 
 position = Vector2( 107.748, 719.636 )
 state = "ARRIVING"
@@ -302,5 +302,3 @@ texture = ExtResource( 14 )
 [connection signal="taken_by" from="Beer" to="Player" method="_on_Beer_taken_by"]
 
 [connection signal="taken_by" from="Beer" to="." method="_on_Beer_taken_by"]
-
-

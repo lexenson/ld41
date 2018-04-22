@@ -7,7 +7,7 @@ export (NodePath) var assigned_seat_position
 
 var stop_position
 
-signal paid
+signal paid(customer)
 signal looking_for_seat(customer)
 
 func _ready():
@@ -75,6 +75,6 @@ func _on_Customer_area_entered(area):
 	if area.name == "Player":
 		if state == "PAYING" and not area.holding:
 			state = "LEAVING"
-			emit_signal("paid")
+			emit_signal("paid", self)
 		elif state == "WAITING":
 			emit_signal("looking_for_seat", self)
