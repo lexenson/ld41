@@ -10,10 +10,10 @@ func _ready():
 	$AnimatedSprite.play()
 
 func _process(delta):
-		$BeerThoughtBubble.visible = false
-		if consuming.empty:
-			leaving = true
-			consuming = null
+	$BeerThoughtBubble.visible = false
+	if consuming and consuming.empty:
+		leaving = true
+		consuming = null
 	elif leaving:
 		$BeerThoughtBubble.visible = false
 	else:
