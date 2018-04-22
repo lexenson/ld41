@@ -10,7 +10,7 @@ source_file="res://art/beer-half3.png"
 source_md5="a6a8bbf10bc920f4fa0495ec06b00394"
 
 dest_files=[ "res://.import/beer-half3.png-61c15a826c2e1e65db0a892ce2d9b685.stex" ]
-dest_md5="81fbb1b7aae02bcf0be8a03f913a1968"
+dest_md5="bb9dc862fe150becf8ffc7531dd43a71"
 
 [params]
 
@@ -19,7 +19,7 @@ compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
@@ -28,5 +28,5 @@ process/premult_alpha=false
 process/HDR_as_SRGB=false
 stream=false
 size_limit=0
-detect_3d=true
+detect_3d=false
 svg/scale=1.0

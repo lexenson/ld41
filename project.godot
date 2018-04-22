@@ -21,4 +21,5 @@ window/size/height=800
 
 [rendering]
 
+quality/subsurface_scattering/scale=2
 environment/default_environment="res://default_env.tres"

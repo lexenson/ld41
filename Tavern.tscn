@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Tavern.gd" type="Script" id=1]
-[ext_resource path="res://art/tavern background.png" type="Texture" id=2]
+[ext_resource path="res://art/tavern_background.png" type="Texture" id=2]
 [ext_resource path="res://art/painting_mountain.png" type="Texture" id=3]
 [ext_resource path="res://art/lamp.png" type="Texture" id=4]
 [ext_resource path="res://art/light.png" type="Texture" id=5]
@@ -21,10 +21,10 @@ extents = Vector2( 22.6212, 10 )
 script = ExtResource( 1 )
 _sections_unfolded = [ "Pause" ]
 
-[node name="tavern background" type="Sprite" parent="." index="0"]
+[node name="tavern_background" type="Sprite" parent="." index="0"]
 
-position = Vector2( 602.19, 398.217 )
-scale = Vector2( 6.2, 6.2 )
+position = Vector2( 600.658, 400.575 )
+scale = Vector2( 3.128, 3.128 )
 texture = ExtResource( 2 )
 _sections_unfolded = [ "Transform" ]
 
@@ -173,6 +173,7 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="bar" type="Sprite" parent="." index="7"]
 
+editor/display_folded = true
 position = Vector2( 1075.76, 736 )
 scale = Vector2( 4, 4 )
 texture = ExtResource( 10 )

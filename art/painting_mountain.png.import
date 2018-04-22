@@ -10,7 +10,7 @@ source_file="res://art/painting_mountain.png"
 source_md5="3be6d2826defa9c012e8083c964f6419"
 
 dest_files=[ "res://.import/painting_mountain.png-76341e0e6fda1b8b11e2358c777180fc.stex" ]
-dest_md5="7ad1bb8a1973a6dcb30c0342b3abccb9"
+dest_md5="84986ff0ea16c582046be9d885837db9"
 
 [params]
 
@@ -19,7 +19,7 @@ compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
@@ -28,5 +28,5 @@ process/premult_alpha=false
 process/HDR_as_SRGB=false
 stream=false
 size_limit=0
-detect_3d=true
+detect_3d=false
 svg/scale=1.0

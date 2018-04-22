@@ -10,7 +10,7 @@ source_file="res://art/lamp.png"
 source_md5="a0513b86c04ac24146b2250a0071c4e6"
 
 dest_files=[ "res://.import/lamp.png-dfd8c25a9f38e16a8c88211172641f16.stex" ]
-dest_md5="d0671a44f1554d91060b402b54566414"
+dest_md5="667a11ce1f0ff3032dc387abbb21cef5"
 
 [params]
 
@@ -19,7 +19,7 @@ compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
@@ -28,5 +28,5 @@ process/premult_alpha=false
 process/HDR_as_SRGB=false
 stream=false
 size_limit=0
-detect_3d=true
+detect_3d=false
 svg/scale=1.0

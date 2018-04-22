@@ -10,7 +10,7 @@ source_file="res://art/beer.png"
 source_md5="90065c3085f5e2e5d476494f92b6a83f"
 
 dest_files=[ "res://.import/beer.png-497722d8750ffa8289b6b3a3c73b9e43.stex" ]
-dest_md5="50e8e4316ec9cf75fae9b0ce288b927e"
+dest_md5="687313e8224fffe51003c53cd0988c77"
 
 [params]
 
@@ -19,7 +19,7 @@ compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
@@ -28,5 +28,5 @@ process/premult_alpha=false
 process/HDR_as_SRGB=false
 stream=false
 size_limit=0
-detect_3d=true
+detect_3d=false
 svg/scale=1.0

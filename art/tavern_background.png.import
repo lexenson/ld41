@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/tavern background.png-1d3093dbf6fe727e80ba6191330bebae.stex"
+path="res://.import/tavern_background.png-f7d1e62e3fc55ffbbc9041849c8f5bad.stex"
 
 [deps]
 
-source_file="res://art/tavern background.png"
-source_md5="2aab12f85f9d255b194cc7c8b28dfd87"
+source_file="res://art/tavern_background.png"
+source_md5="6e256e56552bcd04a348d8d578c0708e"
 
-dest_files=[ "res://.import/tavern background.png-1d3093dbf6fe727e80ba6191330bebae.stex" ]
-dest_md5="87c59ddd388a4b2507217317478f2b36"
+dest_files=[ "res://.import/tavern_background.png-f7d1e62e3fc55ffbbc9041849c8f5bad.stex" ]
+dest_md5="853d2f87a4d68ad1f04eba393f7384e3"
 
 [params]
 
@@ -19,7 +19,7 @@ compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
@@ -28,5 +28,5 @@ process/premult_alpha=false
 process/HDR_as_SRGB=false
 stream=false
 size_limit=0
-detect_3d=true
+detect_3d=false
 svg/scale=1.0

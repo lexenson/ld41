@@ -10,7 +10,7 @@ source_file="res://art/schankboy-walk2.png"
 source_md5="13c0945787bdaeb0c32ee97ea8b7d197"
 
 dest_files=[ "res://.import/schankboy-walk2.png-7e82782b9028276db7e19b169580cc52.stex" ]
-dest_md5="80f1faabdd95ef9cea682dc43b189c80"
+dest_md5="1ea96c06b7bb04f4c042cbcd26976846"
 
 [params]
 
@@ -19,7 +19,7 @@ compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
@@ -28,5 +28,5 @@ process/premult_alpha=false
 process/HDR_as_SRGB=false
 stream=false
 size_limit=0
-detect_3d=true
+detect_3d=false
 svg/scale=1.0

@@ -10,7 +10,7 @@ source_file="res://art/customer-1.png"
 source_md5="59b55fc1ccf2f2b1c5ad7c6bdb3e0a1a"
 
 dest_files=[ "res://.import/customer-1.png-caa95cad4b3252dad974cce76d32705b.stex" ]
-dest_md5="8327df1be4bde1d6cee3f7eb1e06131c"
+dest_md5="9577c820ad0e9acae18ea970a4c3d20f"
 
 [params]
 
@@ -19,7 +19,7 @@ compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
@@ -28,5 +28,5 @@ process/premult_alpha=false
 process/HDR_as_SRGB=false
 stream=false
 size_limit=0
-detect_3d=true
+detect_3d=false
 svg/scale=1.0
