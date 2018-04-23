@@ -32,7 +32,7 @@ animations = [ {
 custom_solver_bias = 0.0
 extents = Vector2( 10, 10 )
 
-[node name="Beer" type="Area2D"]
+[node name="Beer" type="Area2D" index="0"]
 
 position = Vector2( 1, 0 )
 input_pickable = true
@@ -62,6 +62,13 @@ shape = SubResource( 2 )
 [node name="Position2D" type="Position2D" parent="." index="2"]
 
 _sections_unfolded = [ "Transform" ]
+
+[node name="NoSwapTimer" type="Timer" parent="." index="3"]
+
+process_mode = 1
+wait_time = 0.3
+one_shot = true
+autostart = false
 
 [connection signal="area_entered" from="." to="." method="_on_Beer_area_entered"]
 

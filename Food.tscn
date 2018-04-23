@@ -25,7 +25,7 @@ animations = [ {
 custom_solver_bias = 0.0
 extents = Vector2( 15.4572, 11.4456 )
 
-[node name="Food" type="Area2D"]
+[node name="Food" type="Area2D" index="0"]
 
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
@@ -49,6 +49,13 @@ _sections_unfolded = [ "Transform" ]
 position = Vector2( 0.387421, 2.20475 )
 scale = Vector2( 1, 1.2441 )
 shape = SubResource( 2 )
+
+[node name="NoSwapTimer" type="Timer" parent="." index="2"]
+
+process_mode = 1
+wait_time = 0.3
+one_shot = true
+autostart = false
 
 [connection signal="area_entered" from="." to="." method="_on_Food_area_entered"]
 
