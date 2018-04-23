@@ -456,8 +456,8 @@ audio_bus_name = "Master"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="stove/StoveArea" index="0"]
 
-position = Vector2( -7.63153, 31.0109 )
-scale = Vector2( 1, 2.42084 )
+position = Vector2( -4.60619, 31.0109 )
+scale = Vector2( 1.07468, 2.42084 )
 shape = SubResource( 4 )
 
 [node name="Beer" parent="." index="4" instance=ExtResource( 35 )]
@@ -467,7 +467,7 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="Food" parent="." index="5" instance=ExtResource( 36 )]
 
-position = Vector2( -970.479, 633.878 )
+position = Vector2( -1021.82, 632.774 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Coins" type="Node" parent="." index="6"]
@@ -554,12 +554,12 @@ wait_time = 4.0
 one_shot = false
 autostart = false
 
-[connection signal="taken_by" from="Beer" to="." method="_on_Beer_taken_by"]
-
 [connection signal="taken_by" from="Beer" to="Player" method="_on_Beer_taken_by"]
 
-[connection signal="taken_by" from="Food" to="." method="_on_Food_taken_by"]
+[connection signal="taken_by" from="Beer" to="." method="_on_Beer_taken_by"]
 
 [connection signal="taken_by" from="Food" to="Player" method="_on_Food_taken_by"]
+
+[connection signal="taken_by" from="Food" to="." method="_on_Food_taken_by"]
 
 
