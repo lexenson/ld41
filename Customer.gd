@@ -20,12 +20,10 @@ func _ready():
 	else:
 		craving = "Food"
 	if randi() % 2 == 1:
-		print('first char')
 		$AnimatedSprite.visible = true
 		$AnimatedSprite2.visible = false
 		animated_sprite = $AnimatedSprite
 	else:
-		print('second char')
 		$AnimatedSprite.visible = false
 		$AnimatedSprite2.visible = true
 		animated_sprite = $AnimatedSprite2
