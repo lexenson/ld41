@@ -554,12 +554,12 @@ wait_time = 4.0
 one_shot = false
 autostart = false
 
-[connection signal="taken_by" from="Beer" to="Player" method="_on_Beer_taken_by"]
-
 [connection signal="taken_by" from="Beer" to="." method="_on_Beer_taken_by"]
 
-[connection signal="taken_by" from="Food" to="Player" method="_on_Food_taken_by"]
+[connection signal="taken_by" from="Beer" to="Player" method="_on_Beer_taken_by"]
 
 [connection signal="taken_by" from="Food" to="." method="_on_Food_taken_by"]
+
+[connection signal="taken_by" from="Food" to="Player" method="_on_Food_taken_by"]
 
 

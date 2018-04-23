@@ -26,9 +26,13 @@ func _on_Beer_area_entered(area):
 		emit_signal("taken_by", self, area)
 	if parent.name == "Customers" and not empty and area.get('state') == 'SITTING' and area.craving == "Beer":
 		emit_signal("taken_by", self, area)
-	if area.name == "BarArea" and empty:
-		$CollisionShape2D.disabled = true
-		$AnimatedSprite.play('fill')
+	if area.name == "BarArea":
+		if empty:
+			$CollisionShape2D.disabled = true
+			$AnimatedSprite.play('fill')
+		else:
+			can_be_taken = false
+			$NoSwapTimer.start()
 		emit_signal("taken_by", self, area)
 		position.y =  area.global_position.y - 72
 
