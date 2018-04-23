@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://Customer.gd" type="Script" id=1]
 [ext_resource path="res://art/customer-1-walk1.png" type="Texture" id=2]
@@ -8,18 +8,25 @@
 [ext_resource path="res://art/customer-1.png" type="Texture" id=6]
 [ext_resource path="res://art/customer-1-idle1.png" type="Texture" id=7]
 [ext_resource path="res://art/customer-1-idle2.png" type="Texture" id=8]
-[ext_resource path="res://art/thought_bubble.png" type="Texture" id=9]
-[ext_resource path="res://art/beer-half1.png" type="Texture" id=10]
-[ext_resource path="res://art/food-full.png" type="Texture" id=11]
-[ext_resource path="res://art/coin.png" type="Texture" id=12]
-[ext_resource path="res://art/table.png" type="Texture" id=13]
+[ext_resource path="res://art/customer-2-walk1.png" type="Texture" id=9]
+[ext_resource path="res://art/customer-2-walk2.png" type="Texture" id=10]
+[ext_resource path="res://art/customer-2-walk3.png" type="Texture" id=11]
+[ext_resource path="res://art/customer-2-walk4.png" type="Texture" id=12]
+[ext_resource path="res://art/customer-2-sit.png" type="Texture" id=13]
+[ext_resource path="res://art/customer-2-idle1.png" type="Texture" id=14]
+[ext_resource path="res://art/customer-2-idle2.png" type="Texture" id=15]
+[ext_resource path="res://art/thought_bubble.png" type="Texture" id=16]
+[ext_resource path="res://art/beer-half1.png" type="Texture" id=17]
+[ext_resource path="res://art/food-full.png" type="Texture" id=18]
+[ext_resource path="res://art/coin.png" type="Texture" id=19]
+[ext_resource path="res://art/table.png" type="Texture" id=20]
 
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
 extents = Vector2( 15.1127, 19.4591 )
 
-[sub_resource type="SpriteFrames" id=2]
+[sub_resource type="SpriteFrames" id=3]
 
 animations = [ {
 "frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ) ],
@@ -28,11 +35,30 @@ animations = [ {
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 6 ) ],
-"loop": false,
+"loop": true,
 "name": "sit",
 "speed": 0.2
 }, {
 "frames": [ ExtResource( 7 ), ExtResource( 8 ) ],
+"loop": true,
+"name": "idle",
+"speed": 0.2
+} ]
+
+[sub_resource type="SpriteFrames" id=2]
+
+animations = [ {
+"frames": [ ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ) ],
+"loop": true,
+"name": "walk",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 13 ) ],
+"loop": false,
+"name": "sit",
+"speed": 0.2
+}, {
+"frames": [ ExtResource( 14 ), ExtResource( 15 ) ],
 "loop": true,
 "name": "idle",
 "speed": 0.2
@@ -61,45 +87,50 @@ shape = SubResource( 1 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="." index="1"]
 
+frames = SubResource( 3 )
+animation = "sit"
+
+[node name="AnimatedSprite2" type="AnimatedSprite" parent="." index="2"]
+
 frames = SubResource( 2 )
 animation = "sit"
 
-[node name="BeerPosition" type="Position2D" parent="." index="2"]
+[node name="BeerPosition" type="Position2D" parent="." index="3"]
 
 position = Vector2( -1.9611, 8.26847 )
 
-[node name="ThoughtBubble" type="Sprite" parent="." index="3"]
+[node name="ThoughtBubble" type="Sprite" parent="." index="4"]
 
 position = Vector2( 25.9293, -43.904 )
-texture = ExtResource( 9 )
+texture = ExtResource( 16 )
 _sections_unfolded = [ "Visibility" ]
 
 [node name="Beer" type="Sprite" parent="ThoughtBubble" index="0"]
 
 position = Vector2( 0.187897, -5.15599 )
 scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 10 )
+texture = ExtResource( 17 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Food" type="Sprite" parent="ThoughtBubble" index="1"]
 
 position = Vector2( 0.82019, -4.0385 )
 scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 11 )
+texture = ExtResource( 18 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Coin" type="Sprite" parent="ThoughtBubble" index="2"]
 
 position = Vector2( 0.693367, -3.66905 )
 scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 12 )
+texture = ExtResource( 19 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Table" type="Sprite" parent="ThoughtBubble" index="3"]
 
 position = Vector2( 0.0846367, -4.97772 )
 scale = Vector2( 0.1, 0.25 )
-texture = ExtResource( 13 )
+texture = ExtResource( 20 )
 _sections_unfolded = [ "Transform" ]
 
 [connection signal="area_entered" from="." to="." method="_on_Customer_area_entered"]

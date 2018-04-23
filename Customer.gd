@@ -8,40 +8,51 @@ export (NodePath) var assigned_seat_position
 var stop_position
 const door_position_x = 0
 var craving
+var animated_sprite
 
 
 signal paid(customer)
 signal looking_for_seat(customer)
 
 func _ready():
-	position.x = -100
-	position.y = 717
-	$AnimatedSprite.play()
-	stop_position = round(rand_range(-100, 200))
 	if randi() % 2 == 1:
 		craving = "Beer"
 	else:
 		craving = "Food"
+	if randi() % 2 == 1:
+		print('first char')
+		$AnimatedSprite.visible = true
+		$AnimatedSprite2.visible = false
+		animated_sprite = $AnimatedSprite
+	else:
+		print('second char')
+		$AnimatedSprite.visible = false
+		$AnimatedSprite2.visible = true
+		animated_sprite = $AnimatedSprite2
+	position.x = -100
+	position.y = 717
+	animated_sprite.play()
+	stop_position = round(rand_range(-100, 200))
 
 func _process(delta):
 	if state == "ARRIVING":
 		$ThoughtBubble.visible = false
 		position.x += speed
-		$AnimatedSprite.animation = "walk"
-		$AnimatedSprite.flip_h = false
+		animated_sprite.animation = "walk"
+		animated_sprite.flip_h = false
 		if position.x >= stop_position:
 			state = "WAITING"
-			$AnimatedSprite.animation = "idle"
+			animated_sprite.animation = "idle"
 	elif state == "WAITING":
 		$ThoughtBubble.visible = false
-		$AnimatedSprite.animation = "idle"
+		animated_sprite.animation = "idle"
 		show_table_bubble()		
 	elif state == "COMING":
 		$ThoughtBubble.visible = false		
-		$AnimatedSprite.animation = "walk"
-		$AnimatedSprite.flip_h = false
+		animated_sprite.animation = "walk"
+		animated_sprite.flip_h = false
 		var target_position = get_node(assigned_seat_position).position.x
-		$AnimatedSprite.flip_h = position.x > target_position
+		animated_sprite.flip_h = position.x > target_position
 		if position.x >= target_position:
 			position.x -= speed
 			if position.x <= target_position:
@@ -53,8 +64,8 @@ func _process(delta):
 		$CollisionShape2D.disabled = true
 	elif state == "LEAVING":
 		$ThoughtBubble.visible = false		
-		$AnimatedSprite.animation = "walk"
-		$AnimatedSprite.flip_h = position.x > door_position_x
+		animated_sprite.animation = "walk"
+		animated_sprite.flip_h = position.x > door_position_x
 		if position.x >= door_position_x:
 			position.x -= speed
 			if position.x <= door_position_x:
@@ -69,13 +80,13 @@ func _process(delta):
 			show_beer_bubble()
 		elif craving == "Food":
 			show_food_bubble()
-		$AnimatedSprite.animation = "sit"
+		animated_sprite.animation = "sit"
 		$CollisionShape2D.disabled = false
 		if consuming:
 			state = "CONSUMING"
 	elif state == "CONSUMING":
 		$ThoughtBubble.visible = false
-		$AnimatedSprite.animation = "sit"
+		animated_sprite.animation = "sit"
 		$CollisionShape2D.disabled = true
 		if consuming and consuming.empty:
 			state = "PAYING"
@@ -83,7 +94,7 @@ func _process(delta):
 	elif state == "PAYING":
 		$CollisionShape2D.disabled = false
 		show_coin_bubble()
-		$AnimatedSprite.animation = "sit"
+		animated_sprite.animation = "sit"
 		
 func show_coin_bubble():
 	$ThoughtBubble.visible = true
