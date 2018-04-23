@@ -1,0 +1,18 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/tavern.ogg-64c3baad78ab00af38f13e396e05c6c9.oggstr"
+
+[deps]
+
+source_file="res://tavern.ogg"
+source_md5="72855f88dd1439bd1c3c2821ac51d8b4"
+
+dest_files=[ "res://.import/tavern.ogg-64c3baad78ab00af38f13e396e05c6c9.oggstr" ]
+dest_md5="a9805ef6039fc0b30f0856fa20695495"
+
+[params]
+
+loop=true
+loop_offset=0
