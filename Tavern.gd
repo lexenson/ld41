@@ -53,18 +53,22 @@ func assign_customer_seat(customer):
 func customer_paid(customer):
 	seats.append(get_node(customer.assigned_seat_position))
 	customer.assigned_seat_position = null
-	increment_coins()
-	$"CoinHUD/Label".text = String(coins)
 
 func customer_paying(customer):
 	var new_coin = coin_scene.instance()
 	new_coin.position = customer.position
 	new_coin.connect("taken_by", $Player, "_on_Coin_taken_by")
+	new_coin.connect("taken_by", self, "_on_Coin_taken_by")
 	$Coins.add_child(new_coin)
+	
+func _on_Coin_taken_by(taken, taker):
+	if taker.name == 'RegisterArea':
+		increment_coins()
 	
 func increment_coins():
 	coins += 1
 	total_coins += 1
+	$"CoinHUD/Label".text = String(coins)
 	emit_signal("coins_changed", coins, total_coins)
 	
 func connect_customer(customer):

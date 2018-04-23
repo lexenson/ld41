@@ -21,8 +21,8 @@ func _on_Coin_area_entered(area):
 		can_be_taken = false
 		$NoSwapTimer.start()
 		emit_signal("taken_by", self, area)
-	if area.name == "BarArea":
-		print("Money brought to bar")
+	if area.name == "RegisterArea":
+		print("Money brought to Register")
 		emit_signal("taken_by", self,  area)
 		queue_free()
 
