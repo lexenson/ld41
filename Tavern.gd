@@ -32,6 +32,19 @@ func set_shift_ended():
 func restart():
 	emit_signal("restart")
 	coins = 0
+	$Player.holding = null
+	for coin in $Coins.get_children():
+		coin.queue_free()
+	$Beer.position.x = 1023.330017
+	$Beer.position.y = 666.00
+	$Beer.get_node("AnimatedSprite").animation = 'full'
+	$Beer.get_node("AnimatedSprite").frame = 0
+	$Beer.empty = false
+	$Food.position.x = -970.479004
+	$Food.position.y = 633.8
+	$Food.get_node("AnimatedSprite").animation = 'eat'
+	$Food.get_node("AnimatedSprite").frame = 0
+	$Food.empty = false
 	$"cash-register/CoinHUD/Label".text = String(coins)
 	shift_ended = false
 	state = "PLAYING"
@@ -40,7 +53,10 @@ func restart():
 	$ShiftBalanceTimer.stop()
 	
 func _process(delta):
-	if state == "PLAYING" and shift_ended and $Customers.get_children().size() == 0:
+	if state == "PLAYING" and shift_ended:
+		for customer in $Customers.get_children():
+			customer.state = "LEAVING"
+		seats = $Seats.get_children()
 		emit_signal("shift_ended")
 		$ShiftBalanceTimer.start()
 		state = "BALANCE"
