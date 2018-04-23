@@ -57,6 +57,7 @@ func customer_paid(customer):
 func customer_paying(customer):
 	var new_coin = coin_scene.instance()
 	new_coin.position = customer.position
+	new_coin.hide()
 	new_coin.connect("taken_by", $Player, "_on_Coin_taken_by")
 	new_coin.connect("taken_by", self, "_on_Coin_taken_by")
 	$Coins.add_child(new_coin)

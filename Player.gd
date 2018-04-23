@@ -60,5 +60,6 @@ func _on_Food_taken_by(taken, taker):
 func _on_Coin_taken_by(taken, taker):
 	if taker == self:
 		holding = taken
+		taken.show()
 	else:
 		holding = null

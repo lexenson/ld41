@@ -60,12 +60,12 @@ extents = Vector2( 10, 10 )
 custom_solver_bias = 0.0
 extents = Vector2( 37.5132, 10 )
 
-[sub_resource type="RectangleShape2D" id=4]
+[sub_resource type="RectangleShape2D" id=7]
 
 custom_solver_bias = 0.0
 extents = Vector2( 10, 10 )
 
-[sub_resource type="DynamicFont" id=5]
+[sub_resource type="DynamicFont" id=8]
 
 size = 50
 use_mipmaps = false
@@ -429,12 +429,14 @@ position = Vector2( 1023.33, 666.078 )
 
 position = Vector2( -970.479, 633.878 )
 
-[node name="Player" parent="." index="6" instance=ExtResource( 35 )]
+[node name="Coins" type="Node" parent="." index="6"]
+
+[node name="Player" parent="." index="7" instance=ExtResource( 35 )]
 
 position = Vector2( 400, 730.414 )
 _sections_unfolded = [ "Collision", "Transform" ]
 
-[node name="bar" type="Sprite" parent="." index="7"]
+[node name="bar" type="Sprite" parent="." index="8"]
 
 position = Vector2( 1075.76, 736 )
 scale = Vector2( 4, 4 )
@@ -458,9 +460,9 @@ _sections_unfolded = [ "Transform" ]
 
 position = Vector2( 5.16583, 2.26471 )
 scale = Vector2( 0.17105, 2.76336 )
-shape = SubResource( 4 )
+shape = SubResource( 7 )
 
-[node name="Tables" type="Node" parent="." index="8"]
+[node name="Tables" type="Node" parent="." index="9"]
 
 [node name="table" type="Sprite" parent="Tables" index="0"]
 
@@ -476,7 +478,7 @@ scale = Vector2( 3, 3 )
 texture = ExtResource( 37 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Seats" type="Node" parent="." index="9"]
+[node name="Seats" type="Node" parent="." index="10"]
 
 [node name="Position2D" type="Position2D" parent="Seats" index="0"]
 
@@ -495,9 +497,9 @@ position = Vector2( -643.459, 724.339 )
 
 position = Vector2( -785.956, 722.476 )
 
-[node name="ShiftBalance" parent="." index="10" instance=ExtResource( 38 )]
+[node name="ShiftBalance" parent="." index="11" instance=ExtResource( 38 )]
 
-[node name="CoinHUD" type="Node2D" parent="." index="11"]
+[node name="CoinHUD" type="Node2D" parent="." index="12"]
 
 position = Vector2( -319.482, 657.039 )
 scale = Vector2( 0.5, 0.5 )
@@ -522,7 +524,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 8 )
 custom_colors/font_color = Color( 0.914062, 0.817043, 0.0270287, 1 )
 text = "0"
 percent_visible = 1.0
@@ -535,21 +537,19 @@ _sections_unfolded = [ "custom_colors", "custom_fonts", "custom_styles" ]
 position = Vector2( -27, 4.19875 )
 texture = ExtResource( 40 )
 
-[node name="NewCustomerTimer" type="Timer" parent="." index="12"]
+[node name="NewCustomerTimer" type="Timer" parent="." index="13"]
 
 process_mode = 1
 wait_time = 7.0
 one_shot = false
 autostart = true
 
-[node name="ShiftBalanceTimer" type="Timer" parent="." index="13"]
+[node name="ShiftBalanceTimer" type="Timer" parent="." index="14"]
 
 process_mode = 1
 wait_time = 4.0
 one_shot = false
 autostart = false
-
-[node name="Coins" type="Node" parent="." index="14"]
 
 [connection signal="taken_by" from="Beer" to="." method="_on_Beer_taken_by"]
 
