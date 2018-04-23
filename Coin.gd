@@ -15,14 +15,13 @@ func set_can_be_taken():
 
 func _on_Coin_area_entered(area):
 	var parent = area.get_parent()
-	if area.name == "Player" and can_be_taken and (not area.holding or area.holding.can_be_taken):
+	if area.name == "Player" and can_be_taken and (not area.holding or (area.holding.can_be_taken and self.visible)):
 		if area.holding:
 			area.holding.position = self.position
 		can_be_taken = false
 		$NoSwapTimer.start()
 		emit_signal("taken_by", self, area)
 	if area.name == "RegisterArea":
-		print("Money brought to Register")
 		emit_signal("taken_by", self,  area)
 		queue_free()
 

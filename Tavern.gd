@@ -69,7 +69,7 @@ func _on_Coin_taken_by(taken, taker):
 func increment_coins():
 	coins += 1
 	total_coins += 1
-	$"CoinHUD/Label".text = String(coins)
+	$"cash-register/CoinHUD/Label".text = String(coins)
 	emit_signal("coins_changed", coins, total_coins)
 	
 func connect_customer(customer):
