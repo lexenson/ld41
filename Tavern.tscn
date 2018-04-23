@@ -48,7 +48,7 @@ animations = [ {
 "frames": [ ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 25 ), ExtResource( 26 ), ExtResource( 27 ), ExtResource( 28 ), ExtResource( 29 ), ExtResource( 30 ), ExtResource( 11 ) ],
 "loop": false,
 "name": "time",
-"speed": 0.3
+"speed": 0.375
 } ]
 
 [sub_resource type="RectangleShape2D" id=2]
@@ -369,6 +369,7 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="cash-register" type="Sprite" parent="." index="1"]
 
+editor/display_folded = true
 position = Vector2( -314.604, 726.787 )
 scale = Vector2( 2, 2 )
 texture = ExtResource( 31 )
@@ -440,6 +441,7 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="stove" type="Sprite" parent="." index="3"]
 
+editor/display_folded = true
 position = Vector2( -1071.7, 645.06 )
 scale = Vector2( 2.5, 2.5 )
 texture = ExtResource( 34 )
@@ -480,6 +482,7 @@ _sections_unfolded = [ "Collision", "Transform" ]
 
 [node name="bar" type="Sprite" parent="." index="8"]
 
+editor/display_folded = true
 position = Vector2( 1075.76, 736 )
 scale = Vector2( 4, 4 )
 texture = ExtResource( 38 )
@@ -506,6 +509,8 @@ shape = SubResource( 5 )
 
 [node name="Tables" type="Node" parent="." index="9"]
 
+editor/display_folded = true
+
 [node name="table" type="Sprite" parent="Tables" index="0"]
 
 position = Vector2( 491.591, 755 )
@@ -521,6 +526,8 @@ texture = ExtResource( 39 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Seats" type="Node" parent="." index="10"]
+
+editor/display_folded = true
 
 [node name="Position2D" type="Position2D" parent="Seats" index="0"]
 
