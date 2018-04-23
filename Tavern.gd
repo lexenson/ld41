@@ -38,3 +38,7 @@ func spawn_new_customer():
 func _on_Beer_taken_by(taken, taker):
 	for customer in $Customers.get_children():
 		customer._on_Beer_taken_by(taken, taker)
+		
+func _on_Food_taken_by(taken, taker):
+	for customer in $Customers.get_children():
+		customer._on_Food_taken_by(taken, taker)

@@ -7,6 +7,7 @@ export (NodePath) var assigned_seat_position
 
 var stop_position
 const door_position_x = 0
+var craving
 
 
 signal paid(customer)
@@ -17,6 +18,10 @@ func _ready():
 	position.y = 717
 	$AnimatedSprite.play()
 	stop_position = round(rand_range(-100, 200))
+	if randi() % 2 == 1:
+		craving = "Beer"
+	else:
+		craving = "Food"
 
 func _process(delta):
 	if state == "ARRIVING":
@@ -60,12 +65,15 @@ func _process(delta):
 				queue_free()
 		$CollisionShape2D.disabled = true		
 	elif state == "SITTING":
-		show_beer_bubble()
+		if craving == "Beer":
+			show_beer_bubble()
+		elif craving == "Food":
+			show_food_bubble()
 		$AnimatedSprite.animation = "sit"
 		$CollisionShape2D.disabled = false
 		if consuming:
-			state = "DRINKING"
-	elif state == "DRINKING":
+			state = "CONSUMING"
+	elif state == "CONSUMING":
 		$ThoughtBubble.visible = false
 		$AnimatedSprite.animation = "sit"
 		$CollisionShape2D.disabled = true
@@ -82,23 +90,39 @@ func show_coin_bubble():
 	$ThoughtBubble/Coin.visible = true
 	$ThoughtBubble/Beer.visible = false
 	$ThoughtBubble/Table.visible = false
+	$ThoughtBubble/Food.visible = false
 	
 func show_beer_bubble():
 	$ThoughtBubble.visible = true
 	$ThoughtBubble/Coin.visible = false
 	$ThoughtBubble/Beer.visible = true
 	$ThoughtBubble/Table.visible = false
+	$ThoughtBubble/Food.visible = false
+	
+func show_food_bubble():
+	$ThoughtBubble.visible = true
+	$ThoughtBubble/Coin.visible = false
+	$ThoughtBubble/Beer.visible = false
+	$ThoughtBubble/Table.visible = false
+	$ThoughtBubble/Food.visible = true
 
 func show_table_bubble():
 	$ThoughtBubble.visible = true
 	$ThoughtBubble/Coin.visible = false
 	$ThoughtBubble/Beer.visible = false
 	$ThoughtBubble/Table.visible = true
+	$ThoughtBubble/Food.visible = false
 
 
 func _on_Beer_taken_by(taken, taker):
 	if taker == self:
 		taken.start_drinking()
+		taken.position = position + $BeerPosition.position
+		consuming = taken
+		
+func _on_Food_taken_by(taken, taker):
+	if taker == self:
+		taken.start_eating()
 		taken.position = position + $BeerPosition.position
 		consuming = taken
 

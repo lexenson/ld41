@@ -48,3 +48,10 @@ func _on_Beer_taken_by(taken, taker):
 		holding = taken
 	else:
 		holding = null
+
+
+func _on_Food_taken_by(taken, taker):
+	if taker == self:
+		holding = taken
+	else:
+		holding = null
