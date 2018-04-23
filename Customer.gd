@@ -12,6 +12,7 @@ var animated_sprite
 
 
 signal paid(customer)
+signal paying(customer)
 signal looking_for_seat(customer)
 
 func _ready():
@@ -87,8 +88,12 @@ func _process(delta):
 		animated_sprite.animation = "sit"
 		$CollisionShape2D.disabled = true
 		if consuming and consuming.empty:
+			state = "WANTS_TO_PAY"
+	elif state == "WANTS_TO_PAY":
+		show_coin_bubble()
+		if not consuming:
+			emit_signal("paying", self)
 			state = "PAYING"
-			consuming = null
 	elif state == "PAYING":
 		$CollisionShape2D.disabled = false
 		show_coin_bubble()
@@ -128,12 +133,16 @@ func _on_Beer_taken_by(taken, taker):
 		taken.start_drinking()
 		taken.position = position + $BeerPosition.position
 		consuming = taken
+	elif taken == consuming:
+		consuming = null
 		
 func _on_Food_taken_by(taken, taker):
 	if taker == self:
 		taken.start_eating()
 		taken.position = position + $BeerPosition.position
 		consuming = taken
+	elif taken == consuming:
+		consuming = null
 
 func _on_Customer_area_entered(area):
 	if area.name == "Player":

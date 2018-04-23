@@ -3,6 +3,7 @@ extends Node
 export (int) var coins = 0
 var total_coins = 0
 export (PackedScene) var customer_scene
+export (PackedScene) var coin_scene
 export (int) var max_customers_in_queue
 
 signal coins_changed(coins, total_coins)
@@ -53,7 +54,13 @@ func customer_paid(customer):
 	seats.append(get_node(customer.assigned_seat_position))
 	customer.assigned_seat_position = null
 	increment_coins()
-	$"cash-register/CoinHUD/Label".text = String(coins)
+	$"CoinHUD/Label".text = String(coins)
+
+func customer_paying(customer):
+	var new_coin = coin_scene.instance()
+	new_coin.position = customer.position
+	new_coin.connect("taken_by", $Player, "_on_Coin_taken_by")
+	$Coins.add_child(new_coin)
 	
 func increment_coins():
 	coins += 1
@@ -62,6 +69,7 @@ func increment_coins():
 	
 func connect_customer(customer):
 	customer.connect("paid", self, "customer_paid")
+	customer.connect("paying", self, "customer_paying")
 	customer.connect("looking_for_seat", self, "assign_customer_seat")
 
 func spawn_new_customer():
