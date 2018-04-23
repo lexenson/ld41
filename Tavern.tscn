@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=2]
+[gd_scene load_steps=48 format=2]
 
 [ext_resource path="res://Tavern.gd" type="Script" id=1]
 [ext_resource path="res://Customer.tscn" type="PackedScene" id=2]
@@ -33,14 +33,15 @@
 [ext_resource path="res://art/cash-register.png" type="Texture" id=31]
 [ext_resource path="res://arcade.ttf" type="DynamicFontData" id=32]
 [ext_resource path="res://art/coin.png" type="Texture" id=33]
-[ext_resource path="res://art/stove.png" type="Texture" id=34]
-[ext_resource path="res://Beer.tscn" type="PackedScene" id=35]
-[ext_resource path="res://Food.tscn" type="PackedScene" id=36]
-[ext_resource path="res://Player.tscn" type="PackedScene" id=37]
-[ext_resource path="res://art/bar.png" type="Texture" id=38]
-[ext_resource path="res://art/table.png" type="Texture" id=39]
-[ext_resource path="res://ShiftBalance.tscn" type="PackedScene" id=40]
-[ext_resource path="res://tavern.ogg" type="AudioStream" id=41]
+[ext_resource path="res://art/collect-cash.wav" type="AudioStream" id=34]
+[ext_resource path="res://art/stove.png" type="Texture" id=35]
+[ext_resource path="res://Beer.tscn" type="PackedScene" id=36]
+[ext_resource path="res://Food.tscn" type="PackedScene" id=37]
+[ext_resource path="res://Player.tscn" type="PackedScene" id=38]
+[ext_resource path="res://art/bar.png" type="Texture" id=39]
+[ext_resource path="res://art/table.png" type="Texture" id=40]
+[ext_resource path="res://ShiftBalance.tscn" type="PackedScene" id=41]
+[ext_resource path="res://tavern.ogg" type="AudioStream" id=42]
 
 [sub_resource type="SpriteFrames" id=1]
 
@@ -369,7 +370,6 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="cash-register" type="Sprite" parent="." index="1"]
 
-editor/display_folded = true
 position = Vector2( -314.604, 726.787 )
 scale = Vector2( 2, 2 )
 texture = ExtResource( 31 )
@@ -430,6 +430,14 @@ _sections_unfolded = [ "custom_colors", "custom_fonts", "custom_styles" ]
 position = Vector2( -27, 4.19875 )
 texture = ExtResource( 33 )
 
+[node name="RegisterSound" type="AudioStreamPlayer" parent="cash-register" index="2"]
+
+stream = ExtResource( 34 )
+volume_db = 0.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
 [node name="Customers" type="Node" parent="." index="2"]
 
 editor/display_folded = true
@@ -444,7 +452,7 @@ _sections_unfolded = [ "Transform" ]
 editor/display_folded = true
 position = Vector2( -1071.7, 645.06 )
 scale = Vector2( 2.5, 2.5 )
-texture = ExtResource( 34 )
+texture = ExtResource( 35 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="StoveArea" type="Area2D" parent="stove" index="0"]
@@ -463,19 +471,19 @@ position = Vector2( -4.60619, 31.0109 )
 scale = Vector2( 1.07468, 2.42084 )
 shape = SubResource( 4 )
 
-[node name="Beer" parent="." index="4" instance=ExtResource( 35 )]
+[node name="Beer" parent="." index="4" instance=ExtResource( 36 )]
 
 position = Vector2( 1023.33, 666.078 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Food" parent="." index="5" instance=ExtResource( 36 )]
+[node name="Food" parent="." index="5" instance=ExtResource( 37 )]
 
 position = Vector2( -1021.82, 632.774 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Coins" type="Node" parent="." index="6"]
 
-[node name="Player" parent="." index="7" instance=ExtResource( 37 )]
+[node name="Player" parent="." index="7" instance=ExtResource( 38 )]
 
 position = Vector2( 400, 730.414 )
 _sections_unfolded = [ "Collision", "Transform" ]
@@ -485,7 +493,7 @@ _sections_unfolded = [ "Collision", "Transform" ]
 editor/display_folded = true
 position = Vector2( 1075.76, 736 )
 scale = Vector2( 4, 4 )
-texture = ExtResource( 38 )
+texture = ExtResource( 39 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="BarArea" type="Area2D" parent="bar" index="0"]
@@ -515,14 +523,14 @@ editor/display_folded = true
 
 position = Vector2( 491.591, 755 )
 scale = Vector2( 3, 3 )
-texture = ExtResource( 39 )
+texture = ExtResource( 40 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="table2" type="Sprite" parent="Tables" index="1"]
 
 position = Vector2( -729.666, 755.365 )
 scale = Vector2( 3, 3 )
-texture = ExtResource( 39 )
+texture = ExtResource( 40 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Seats" type="Node" parent="." index="10"]
@@ -546,7 +554,7 @@ position = Vector2( -643.459, 724.339 )
 
 position = Vector2( -785.956, 722.476 )
 
-[node name="ShiftBalance" parent="." index="11" instance=ExtResource( 40 )]
+[node name="ShiftBalance" parent="." index="11" instance=ExtResource( 41 )]
 
 [node name="NewCustomerTimer" type="Timer" parent="." index="12"]
 
@@ -564,7 +572,7 @@ autostart = false
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="14"]
 
-stream = ExtResource( 41 )
+stream = ExtResource( 42 )
 volume_db = 0.0
 autoplay = true
 mix_target = 0

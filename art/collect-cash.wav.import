@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/collect-cash.wav-45f0ce46b72c11a7f42cc970c1143c6d.sample"
+
+[deps]
+
+source_file="res://art/collect-cash.wav"
+source_md5="936dd4bd38ab3c5b218da2a561bbe098"
+
+dest_files=[ "res://.import/collect-cash.wav-45f0ce46b72c11a7f42cc970c1143c6d.sample" ]
+dest_md5="6e376e00f3557a87e2ed047d7509ff34"
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

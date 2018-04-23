@@ -86,6 +86,7 @@ func increment_coins():
 	coins += 1
 	total_coins += 1
 	$"cash-register/CoinHUD/Label".text = String(coins)
+	$"cash-register/RegisterSound".play()
 	emit_signal("coins_changed", coins, total_coins)
 	
 func connect_customer(customer):
