@@ -12,7 +12,7 @@
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
-extents = Vector2( 10.6134, 7.03024 )
+extents = Vector2( 10.6134, 16.3682 )
 
 [sub_resource type="SpriteFrames" id=2]
 
@@ -33,7 +33,7 @@ animations = [ {
 "speed": 0.6
 } ]
 
-[node name="Player" type="Area2D"]
+[node name="Player" type="Area2D" index="0"]
 
 position = Vector2( 77.2896, 729.71 )
 input_pickable = true
@@ -51,7 +51,7 @@ holding = null
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="0"]
 
-position = Vector2( -6.61385, 23.8071 )
+position = Vector2( -6.61379, 5.84491 )
 scale = Vector2( 3.5041, 5.60317 )
 shape = SubResource( 1 )
 
@@ -61,6 +61,7 @@ position = Vector2( -4.40129, 6.1618 )
 scale = Vector2( 2, 2 )
 frames = SubResource( 2 )
 animation = "idle"
+frame = 1
 playing = true
 _sections_unfolded = [ "Transform" ]
 
