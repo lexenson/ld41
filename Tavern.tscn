@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=2]
+[gd_scene load_steps=44 format=2]
 
 [ext_resource path="res://Tavern.gd" type="Script" id=1]
 [ext_resource path="res://Customer.tscn" type="PackedScene" id=2]
@@ -30,14 +30,15 @@
 [ext_resource path="res://art/clock19.png" type="Texture" id=28]
 [ext_resource path="res://art/clock20.png" type="Texture" id=29]
 [ext_resource path="res://art/stove.png" type="Texture" id=30]
-[ext_resource path="res://Beer.tscn" type="PackedScene" id=31]
-[ext_resource path="res://Food.tscn" type="PackedScene" id=32]
-[ext_resource path="res://Player.tscn" type="PackedScene" id=33]
-[ext_resource path="res://art/bar.png" type="Texture" id=34]
-[ext_resource path="res://art/table.png" type="Texture" id=35]
-[ext_resource path="res://ShiftBalance.tscn" type="PackedScene" id=36]
-[ext_resource path="res://arcade.ttf" type="DynamicFontData" id=37]
-[ext_resource path="res://art/coin.png" type="Texture" id=38]
+[ext_resource path="res://art/cash-register.png" type="Texture" id=31]
+[ext_resource path="res://arcade.ttf" type="DynamicFontData" id=32]
+[ext_resource path="res://art/coin.png" type="Texture" id=33]
+[ext_resource path="res://Beer.tscn" type="PackedScene" id=34]
+[ext_resource path="res://Food.tscn" type="PackedScene" id=35]
+[ext_resource path="res://Player.tscn" type="PackedScene" id=36]
+[ext_resource path="res://art/bar.png" type="Texture" id=37]
+[ext_resource path="res://art/table.png" type="Texture" id=38]
+[ext_resource path="res://ShiftBalance.tscn" type="PackedScene" id=39]
 
 [sub_resource type="SpriteFrames" id=4]
 
@@ -53,20 +54,20 @@ animations = [ {
 custom_solver_bias = 0.0
 extents = Vector2( 37.5132, 10 )
 
-[sub_resource type="RectangleShape2D" id=2]
-
-custom_solver_bias = 0.0
-extents = Vector2( 22.6212, 10 )
-
 [sub_resource type="DynamicFont" id=3]
 
 size = 50
 use_mipmaps = false
 use_filter = false
-font_data = ExtResource( 37 )
+font_data = ExtResource( 32 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[node name="Level" type="Node"]
+[sub_resource type="RectangleShape2D" id=2]
+
+custom_solver_bias = 0.0
+extents = Vector2( 22.6212, 10 )
+
+[node name="Level" type="Node" index="0"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Pause" ]
@@ -75,6 +76,8 @@ customer_scene = ExtResource( 2 )
 max_customers_in_queue = 5
 
 [node name="Background" type="Node" parent="." index="0"]
+
+editor/display_folded = true
 
 [node name="tavern_background_right" type="Sprite" parent="Background" index="0"]
 
@@ -358,16 +361,7 @@ frames = SubResource( 4 )
 animation = "time"
 _sections_unfolded = [ "Transform" ]
 
-[node name="Customers" type="Node" parent="." index="1"]
-
-editor/display_folded = true
-
-[node name="Customer" parent="Customers" index="0" instance=ExtResource( 2 )]
-
-position = Vector2( -153.181, 717.029 )
-_sections_unfolded = [ "Transform" ]
-
-[node name="stove" type="Sprite" parent="." index="2"]
+[node name="stove" type="Sprite" parent="." index="1"]
 
 editor/display_folded = true
 position = Vector2( -1071.7, 645.06 )
@@ -391,97 +385,24 @@ position = Vector2( -7.63153, 31.0109 )
 scale = Vector2( 1, 2.42084 )
 shape = SubResource( 1 )
 
-[node name="Beer" parent="." index="3" instance=ExtResource( 31 )]
+[node name="cash-register" type="Sprite" parent="." index="2"]
 
-position = Vector2( 1023.33, 666.078 )
+position = Vector2( -258.043, 707.198 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 31 )
+_sections_unfolded = [ "Transform" ]
 
-[node name="Food" parent="." index="4" instance=ExtResource( 32 )]
-
-position = Vector2( -970.479, 633.878 )
-
-[node name="Player" parent="." index="5" instance=ExtResource( 33 )]
-
-position = Vector2( 400, 730.414 )
-_sections_unfolded = [ "Collision", "Transform" ]
-
-[node name="bar" type="Sprite" parent="." index="6"]
+[node name="CoinHUD" type="Node2D" parent="cash-register" index="0"]
 
 editor/display_folded = true
-position = Vector2( 1075.76, 736 )
-scale = Vector2( 4, 4 )
-texture = ExtResource( 34 )
-_sections_unfolded = [ "Transform" ]
-
-[node name="BarArea" type="Area2D" parent="bar" index="0"]
-
-position = Vector2( 7.17855, 1.55599 )
-scale = Vector2( 0.746348, -0.469059 )
-input_pickable = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
-audio_bus_override = false
-audio_bus_name = "Master"
-_sections_unfolded = [ "Transform" ]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="bar/BarArea" index="0"]
-
-position = Vector2( 5.16583, 2.26471 )
-scale = Vector2( 0.17105, 2.76336 )
-shape = SubResource( 2 )
-
-[node name="Tables" type="Node" parent="." index="7"]
-
-editor/display_folded = true
-
-[node name="table" type="Sprite" parent="Tables" index="0"]
-
-position = Vector2( 491.591, 755 )
-scale = Vector2( 3, 3 )
-texture = ExtResource( 35 )
-_sections_unfolded = [ "Transform" ]
-
-[node name="table2" type="Sprite" parent="Tables" index="1"]
-
-position = Vector2( -421.429, 754.365 )
-scale = Vector2( 3, 3 )
-texture = ExtResource( 35 )
-_sections_unfolded = [ "Transform" ]
-
-[node name="Seats" type="Node" parent="." index="8"]
-
-editor/display_folded = true
-
-[node name="Position2D" type="Position2D" parent="Seats" index="0"]
-
-position = Vector2( 417.745, 735.03 )
-
-[node name="Position2D2" type="Position2D" parent="Seats" index="1"]
-
-position = Vector2( 564.462, 733.584 )
-_sections_unfolded = [ "Transform" ]
-
-[node name="Position2D3" type="Position2D" parent="Seats" index="2"]
-
-position = Vector2( -335.222, 723.339 )
-
-[node name="Position2D4" type="Position2D" parent="Seats" index="3"]
-
-position = Vector2( -477.719, 721.476 )
-
-[node name="ShiftBalance" parent="." index="9" instance=ExtResource( 36 )]
-
-[node name="CoinHUD" type="Node2D" parent="." index="10"]
-
-editor/display_folded = true
-position = Vector2( 1054.3, 759.779 )
+position = Vector2( -1.37373, -35.214 )
+scale = Vector2( 0.28, 0.28 )
 _sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
 __meta__ = {
 "_edit_group_": true
 }
 
-[node name="Label" type="Label" parent="CoinHUD" index="0"]
+[node name="Label" type="Label" parent="cash-register/CoinHUD" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -505,10 +426,96 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "custom_colors", "custom_fonts", "custom_styles" ]
 
-[node name="Sprite" type="Sprite" parent="CoinHUD" index="1"]
+[node name="Sprite" type="Sprite" parent="cash-register/CoinHUD" index="1"]
 
 position = Vector2( -27, 4.19875 )
+texture = ExtResource( 33 )
+
+[node name="Customers" type="Node" parent="." index="3"]
+
+editor/display_folded = true
+
+[node name="Customer" parent="Customers" index="0" instance=ExtResource( 2 )]
+
+position = Vector2( -153.181, 717.029 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Beer" parent="." index="4" instance=ExtResource( 34 )]
+
+position = Vector2( 1023.33, 666.078 )
+
+[node name="Food" parent="." index="5" instance=ExtResource( 35 )]
+
+position = Vector2( -970.479, 633.878 )
+
+[node name="Player" parent="." index="6" instance=ExtResource( 36 )]
+
+position = Vector2( 400, 730.414 )
+_sections_unfolded = [ "Collision", "Transform" ]
+
+[node name="bar" type="Sprite" parent="." index="7"]
+
+editor/display_folded = true
+position = Vector2( 1075.76, 736 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 37 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="BarArea" type="Area2D" parent="bar" index="0"]
+
+position = Vector2( 7.17855, 1.55599 )
+scale = Vector2( 0.746348, -0.469059 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bar/BarArea" index="0"]
+
+position = Vector2( 5.16583, 2.26471 )
+scale = Vector2( 0.17105, 2.76336 )
+shape = SubResource( 2 )
+
+[node name="Tables" type="Node" parent="." index="8"]
+
+[node name="table" type="Sprite" parent="Tables" index="0"]
+
+position = Vector2( 491.591, 755 )
+scale = Vector2( 3, 3 )
 texture = ExtResource( 38 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="table2" type="Sprite" parent="Tables" index="1"]
+
+position = Vector2( -696.442, 755.592 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 38 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Seats" type="Node" parent="." index="9"]
+
+[node name="Position2D" type="Position2D" parent="Seats" index="0"]
+
+position = Vector2( 417.745, 735.03 )
+
+[node name="Position2D2" type="Position2D" parent="Seats" index="1"]
+
+position = Vector2( 564.462, 733.584 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Position2D3" type="Position2D" parent="Seats" index="2"]
+
+position = Vector2( -605.325, 729.478 )
+
+[node name="Position2D4" type="Position2D" parent="Seats" index="3"]
+
+position = Vector2( -756.416, 728.843 )
+
+[node name="ShiftBalance" parent="." index="10" instance=ExtResource( 39 )]
 
 [node name="NewCustomerTimer" type="Timer" parent="." index="11"]
 

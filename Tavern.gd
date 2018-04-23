@@ -31,6 +31,7 @@ func set_shift_ended():
 func restart():
 	emit_signal("restart")
 	coins = 0
+	$"cash-register/CoinHUD/Label".text = String(coins)
 	shift_ended = false
 	state = "PLAYING"
 	$Background/Clock.frame = 0
@@ -52,7 +53,7 @@ func customer_paid(customer):
 	seats.append(get_node(customer.assigned_seat_position))
 	customer.assigned_seat_position = null
 	increment_coins()
-	$CoinHUD.get_node("Label").text = String(coins)
+	$"cash-register/CoinHUD/Label".text = String(coins)
 	
 func increment_coins():
 	coins += 1
