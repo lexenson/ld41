@@ -8,7 +8,7 @@ func _ready():
 	$ColorRect.visible = false
 
 func update_coins(coins, total_coins):
-	$Label.text = "The shift is over!\n\n\nCoins collected: %s\nTotal coins: %s" % [str(coins), str(total_coins)]
+	$Label.text = "The shift is over\n\n\nShift: %sg\n\nTotal: %sg" % [str(coins), str(total_coins)]
 	
 func show():
 	$Label.visible = true
