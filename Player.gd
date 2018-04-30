@@ -23,7 +23,7 @@ func control(delta):
 		velocity.y = -1 * jump_speed
 		
 	position += velocity * delta
-	velocity.y += gravity
+	velocity.y += 5000 * delta
 	
 	if (velocity.x == 0 and ground_touched):
 		$AnimatedSprite.animation = 'idle'

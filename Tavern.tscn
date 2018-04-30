@@ -75,7 +75,7 @@ extents = Vector2( 37.5132, 10 )
 custom_solver_bias = 0.0
 extents = Vector2( 10, 10 )
 
-[node name="Level" type="Node"]
+[node name="Level" type="Node" index="0"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Pause" ]
@@ -85,6 +85,8 @@ coin_scene = ExtResource( 3 )
 max_customers_in_queue = 5
 
 [node name="Background" type="Node" parent="." index="0"]
+
+editor/display_folded = true
 
 [node name="tavern_background_right" type="Sprite" parent="Background" index="0"]
 
@@ -370,6 +372,7 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="cash-register" type="Sprite" parent="." index="1"]
 
+editor/display_folded = true
 position = Vector2( -314.604, 726.787 )
 scale = Vector2( 2, 2 )
 texture = ExtResource( 31 )
@@ -486,6 +489,7 @@ _sections_unfolded = [ "Transform" ]
 [node name="Player" parent="." index="7" instance=ExtResource( 38 )]
 
 position = Vector2( 400, 730.414 )
+gravity = 1024.0
 _sections_unfolded = [ "Collision", "Transform" ]
 
 [node name="bar" type="Sprite" parent="." index="8"]
@@ -578,12 +582,12 @@ autoplay = true
 mix_target = 0
 bus = "Master"
 
-[connection signal="taken_by" from="Beer" to="Player" method="_on_Beer_taken_by"]
-
 [connection signal="taken_by" from="Beer" to="." method="_on_Beer_taken_by"]
 
-[connection signal="taken_by" from="Food" to="Player" method="_on_Food_taken_by"]
+[connection signal="taken_by" from="Beer" to="Player" method="_on_Beer_taken_by"]
 
 [connection signal="taken_by" from="Food" to="." method="_on_Food_taken_by"]
+
+[connection signal="taken_by" from="Food" to="Player" method="_on_Food_taken_by"]
 
 
