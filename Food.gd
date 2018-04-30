@@ -5,6 +5,13 @@ var empty = false
 signal taken_by(taken, taker)
 var can_be_taken = true
 
+func restart():
+	position.x = -970.479004
+	position.y = 633.8
+	$AnimatedSprite.animation = 'eat'
+	$AnimatedSprite.frame = 0
+	empty = false
+	$CollisionShape2D.disabled = false
 
 func _ready():
 	$NoSwapTimer.connect("timeout", self, "set_can_be_taken")

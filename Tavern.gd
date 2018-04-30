@@ -35,16 +35,10 @@ func restart():
 	$Player.holding = null
 	for coin in $Coins.get_children():
 		coin.queue_free()
-	$Beer.position.x = 1023.330017
-	$Beer.position.y = 666.00
-	$Beer.get_node("AnimatedSprite").animation = 'full'
-	$Beer.get_node("AnimatedSprite").frame = 0
-	$Beer.empty = false
-	$Food.position.x = -970.479004
-	$Food.position.y = 633.8
-	$Food.get_node("AnimatedSprite").animation = 'eat'
-	$Food.get_node("AnimatedSprite").frame = 0
-	$Food.empty = false
+
+	$Beer.restart()
+	$Food.restart()
+
 	$"cash-register/CoinHUD/Label".text = String(coins)
 	shift_ended = false
 	state = "PLAYING"
